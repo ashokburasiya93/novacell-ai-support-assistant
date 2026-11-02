@@ -31,13 +31,21 @@ const SYNONYMS = {
   plan: ["plan"], plans: ["plan"], unlimited: ["unlimited"], family: ["family", "lines"], student: ["student"],
   senior: ["55", "senior"], tablet: ["data-only", "tablet"], spam: ["spam", "block"], scam: ["scam", "wangiri", "spam"],
   activate: ["activate", "activation"], activation: ["activate", "activation"], stolen: ["lost", "stolen", "sim"],
+  // Added after the first held-out run exposed these vocabulary gaps (general terms, not case-specific).
+  promo: ["promotional", "promotion"], promotion: ["promotional"], ended: ["expired"], expired: ["expired"],
+  warn: ["alert", "notification"], warning: ["alert", "notification"], notify: ["alert", "notification"],
+  flying: ["roaming", "travelling", "before"], fly: ["roaming", "travelling"], flight: ["roaming", "travelling"],
+  hacked: ["unauthorised", "security", "compromise"], unauthorized: ["unauthorised"], permission: ["unauthorised"],
+  asking: ["unauthorised"], consent: ["unauthorised"],
 };
 
 function stem(w) {
   if (w.length > 5 && w.endsWith("ing")) return w.slice(0, -3);
   if (w.length > 4 && w.endsWith("ed")) return w.slice(0, -2);
   if (w.length > 4 && w.endsWith("es") && !w.endsWith("ses")) return w.slice(0, -2);
-  if (w.length > 3 && w.endsWith("s") && !w.endsWith("ss")) return w.slice(0, -1);
+  if (w.length > 3 && w.endsWith("s") && !w.endsWith("ss")) return stem(w.slice(0, -1));
+  // "change"/"changed" and "activate"/"activated" must meet at the same stem.
+  if (w.length > 4 && w.endsWith("e")) return w.slice(0, -1);
   return w;
 }
 

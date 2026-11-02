@@ -111,6 +111,7 @@ const metrics = {
   avgCompletionTokens: llm.length ? Math.round(llm.reduce((s, r) => s + r.completionTokens, 0) / llm.length) : 0,
   avgLlmCallsPerQuery: llm.length ? +(llm.reduce((s, r) => s + r.llmCalls, 0) / llm.length).toFixed(2) : 0,
   primaryShare: pct(llm.map((r) => r.tier === "primary")),
+  modelMix: llm.reduce((m, r) => ((m[r.model] = (m[r.model] || 0) + 1), m), {}),
   modelCallsSkippedByGuardrails: rows.length - llm.length,
 };
 const failedTargets = Object.entries(TARGETS).filter(([k, t]) => (k === "p95LatencyMs" ? metrics[k] > t : metrics[k] < t)).map(([k]) => k);

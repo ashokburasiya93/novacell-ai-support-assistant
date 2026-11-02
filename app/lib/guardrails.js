@@ -98,17 +98,33 @@ export function ungroundedNumbers(answer, contextText, question) {
   return [...new Set(bad)];
 }
 
+// Claims that an account action happened or will happen. Broad on purpose: the assistant has no
+// account access, so any such claim is false. (A backup model once wrote "We have already processed
+// a refund of $45", which the first version of this list missed.)
+const ACTIONS = "issued|applied|processed|credited|refunded|reimbursed|reversed|waived|cancell?ed|changed|switched|upgraded|downgraded|reset|activated|unlocked|blocked|unblocked|restored|fixed|escalated|submitted|raised|logged";
 const PROMISES = [
-  /\bI(?:'ve| have)? (issued|applied|processed|credited|refunded|waived|cancell?ed|changed|upgraded|reset|activated|unlocked|blocked)\b/i,
-  /\byou (will|'ll) (receive|get) (a |an )?(refund|credit|compensation|discount)\b/i,
-  /\bI (will|'ll|can) (refund|credit|waive|compensate)\b/i,
-  /\bwe (will|'ll) (refund|credit|waive|compensate)\b/i,
+  new RegExp(`\\b(I|we)(?:'ve|'ll| have| will| had| already)*(?: already| now| just)? (${ACTIONS})\\b`, "i"),
+  /\b(has|have|had) (already |now |just )?been (issued|processed|credited|refunded|reimbursed|reversed|waived|cancell?ed)\b/i,
+  /\byou (will|'ll|should|are going to) (receive|get|see) (a |an |the |your )?(\$?\d[\d.,]* )?(refund|credit|compensation|discount|reimbursement)\b/i,
+  /\b(refund|credit|reimbursement)s? (of \$?[\d.,]+ )?(will|should|is going to) (appear|arrive|be (issued|applied|credited|processed))/i,
+  /\b(I|we) (will|'ll|can|am going to|are going to) (refund|credit|waive|compensate|reimburse|cancel|switch|change|upgrade|downgrade)\b/i,
   /\b(will|to) (issue|process|apply) (the|your|a) (refund|credit)\b/i,
 ];
 
+// Any statement that someone will issue a refund or credit, unless negated ("I can't issue refunds").
+const ISSUE_REFUND = /\b(issue|process|apply|give you|arrange) (a |the |your |any )?(full |partial )?(refund|credit)s?\b/gi;
+const NEGATION = /\b(can['’]t|cannot|can not|not able to|unable to|don['’]t|do not|won['’]t|not)\b[^.]{0,30}$/i;
+
 export function promiseViolations(answer) {
-  return PROMISES.filter((r) => r.test(answer)).map((r) => answer.match(r)[0]);
+  const hits = PROMISES.filter((r) => r.test(answer)).map((r) => answer.match(r)[0]);
+  for (const m of answer.matchAll(ISSUE_REFUND)) {
+    if (!NEGATION.test(answer.slice(Math.max(0, m.index - 40), m.index))) hits.push(m[0]);
+  }
+  return hits;
 }
+
+// Requests to act on the customer's account. These are always routed to an agent, whatever the model says.
+export const ACCOUNT_ACTION = /\b(refund|reimburse|credit (me|my|it|back)|give me (a |my )?(credit|refund|money)|waive|compensat|cancel (my|the|this)|terminate my|close my account|switch me|move me to|change my plan (for me|to)|upgrade me|downgrade me|unblock my|reactivate my|reverse (the|this|my) charge)\b/i;
 
 // Web addresses, APN-style values and menu paths are as dangerous as invented prices: a made-up
 // "internet.novacell.com" or "Settings > Network > X" sends the customer down a dead end.

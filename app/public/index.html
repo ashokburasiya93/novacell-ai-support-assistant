@@ -140,6 +140,7 @@ fetch("/api/health").then((r) => r.json()).then((h) => {
   const p = h.models.primary, f = h.models.fallback;
   $("#badge").innerHTML =
     `<span class="chip ${h.keys.groq ? "live" : "down"}">Primary <b>${esc(p.model)}</b> · ${esc(p.provider)}</span>` +
+    (h.models.secondary ? `<span class="chip ${h.keys.groq ? "live" : "down"}">Secondary <b>${esc(h.models.secondary.model)}</b> · ${esc(h.models.secondary.provider)}</span>` : "") +
     `<span class="chip ${h.keys.openrouter ? "live" : "down"}">Fallback <b>${esc(f.model)}</b> · ${esc(f.provider)}</span>` +
     `<span class="chip">${h.kb.chunks} verified sources</span>`;
 }).catch(() => { $("#badge").innerHTML = `<span class="chip down">Model status unavailable</span>`; });
@@ -158,7 +159,7 @@ function addBot(r) {
   const srcs = (r.sources || []).map((s) => `
     <div class="src"><div class="h"><span class="t">${TYPE[s.type] || s.type}</span>${esc(s.title)} <span class="where">${esc(s.id)} · ${esc(s.source)}</span></div>
     <p>${esc(s.snippet)}${s.snippet.length >= 280 ? "…" : ""}</p></div>`).join("");
-  const model = r.modelUsed ? `${r.modelUsed.tier === "fallback" ? "Fallback · " : ""}${esc(r.modelUsed.model)} · ${(r.latencyMs / 1000).toFixed(1)}s` : "Rule-based guardrail · no model call";
+  const model = r.modelUsed ? `${r.modelUsed.tier !== "primary" ? r.modelUsed.tier[0].toUpperCase() + r.modelUsed.tier.slice(1) + " · " : ""}${esc(r.modelUsed.model)} · ${(r.latencyMs / 1000).toFixed(1)}s` : "Rule-based guardrail · no model call";
   d.innerHTML = `<div class="bubble">
     <div class="meta"><span class="pill s-${r.status}">${STATUS[r.status] || r.status}</span>${conf}</div>
     <div class="text">${esc(r.answer)}</div>

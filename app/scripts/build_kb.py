@@ -42,7 +42,9 @@ GUIDE_DROP_SENTENCE = re.compile(
     r"(Agents? (can|should|must|play)|agent must|subscriber management system|fraud team)", re.I
 )
 # Ticket resolution sentences about one-off goodwill gestures.
-TICKET_DROP_SENTENCE = re.compile(r"(goodwill|compensation|offered \d|Offered \d|data compensation)", re.I)
+# Refunds are case-by-case agent decisions; keeping "Issued a refund of $45 within 3-5 days" let a model
+# restate it as policy. The diagnosis stays, the outcome goes.
+TICKET_DROP_SENTENCE = re.compile(r"(goodwill|compensation|offered \d|data compensation|refund)", re.I)
 
 
 def clean(s: str) -> str:
@@ -77,17 +79,19 @@ def faq_chunks():
 def ticket_chunks():
     con = sqlite3.connect(DATA / "tickets.db")
     out = []
-    for tid, cat, issue, desc, res in con.execute(
-        "select ticket_id, category, issue_type, description, resolution from tickets where status='resolved'"
+    # Escalated tickets (e.g. a suspected account compromise) are kept: their first-line steps are
+    # useful, and labelling them tells the assistant this kind of issue needs an agent.
+    for tid, cat, issue, desc, res, status in con.execute(
+        "select ticket_id, category, issue_type, description, resolution, status from tickets"
     ):
         kept = [s for s in split_sentences(clean(res)) if not TICKET_DROP_SENTENCE.search(s)]
         out.append({
             "id": tid,
             "type": "ticket",
             "title": clean(issue),
-            "text": f"Past resolved case ({cat}): {clean(issue)}.\nSymptom: {clean(desc)}\nHow it was resolved: {' '.join(kept)}",
+            "text": f"Past {status} case ({cat}): {clean(issue)}.\nSymptom: {clean(desc)}\nHow it was handled: {' '.join(kept)}",
             "category": cat,
-            "source": "Resolved support ticket",
+            "source": f"{status.capitalize()} support ticket",
             "synthetic": False,
         })
     return out

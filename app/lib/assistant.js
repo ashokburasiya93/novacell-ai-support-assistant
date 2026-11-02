@@ -1,8 +1,10 @@
 import { search, CHUNKS } from "./retrieval.js";
-import { inputGuard, ungroundedNumbers, promiseViolations, internalLeak, ungroundedSpecifics } from "./guardrails.js";
+import { inputGuard, ungroundedNumbers, promiseViolations, internalLeak, ungroundedSpecifics, ACCOUNT_ACTION } from "./guardrails.js";
 
 export const MODELS = {
   primary: { provider: "Groq", model: process.env.PRIMARY_MODEL || "openai/gpt-oss-120b" },
+  // Same provider, separate free-tier quota: keeps the assistant up when the primary's daily token cap is hit.
+  secondary: { provider: "Groq", model: process.env.SECONDARY_MODEL || "openai/gpt-oss-20b" },
   fallback: { provider: "OpenRouter", model: process.env.FALLBACK_MODEL || "google/gemma-4-31b-it:free" },
 };
 
@@ -18,12 +20,13 @@ RULES - follow all of them:
 3. If the sources do not answer the question, set status "no_answer" and say briefly that you don't have verified information on that. Do not guess.
 4. If the sources answer only part of it, answer that part, say what you could not confirm, and set status "partial".
 5. You cannot see or change any customer account. If the customer wants something done to their account (refund, credit, cancel, change plan for them, check their specific bill or usage, fix a charge, unblock, replace a SIM), give the self-serve steps from the sources if any exist, explain an agent is needed for the rest, and set status "needs_agent". Never promise refunds, credits, waivers or compensation, even if a past ticket shows one was given; say an agent can review it, not that they will issue anything.
-6. Past tickets ("Resolved support ticket") describe one customer's case. Use them as "a similar issue was fixed by ...", never as a guarantee.
+6. Past tickets ("Resolved support ticket" or "Escalated support ticket") describe one customer's case. Use them as "a similar issue was fixed by ...", never as a guarantee.
 7. If sources conflict, trust the higher priority source (Plan catalogue > Technical guide > FAQ > Past ticket). When a lower-priority source quotes a price and the Plan catalogue lists a similar product at a different price, mention both with their names and tell the customer to confirm the current price in the app.
 8. Questions not about NovaCell telecom service (general knowledge, coding, other companies, legal/medical advice): status "out_of_scope", one polite sentence redirecting to what you can help with.
 9. Do not mention internal systems (HLR, BSS, RNC, back-end tools) or describe what agents do internally. Speak to the customer in plain language.
 11. Never invent settings values, APN names, menu paths, web addresses, codes or product names. Copy menu paths exactly as a source writes them. If a source says settings were sent to a customer but does not list them, say an agent can provide them.
 12. Do not put source ids in the answer text; list them only in "citations".
+13. If the customer reports changes, charges or logins they did not make (possible account compromise), do not give steps to make further changes. Set status "needs_agent", tell them to contact support on 611 straight away, and include any security steps the sources give.
 10. Be concise: at most about 120 words. For troubleshooting use short numbered steps, each on its own line ("1. ...
 2. ..."). No markdown headings or bold.
 
@@ -107,7 +110,7 @@ function cleanAnswer(text) {
 // Primary first; on any error (rate limit, outage, timeout, bad JSON) fall back.
 async function generate(messages) {
   const errors = [];
-  for (const [tier, cfg, timeout] of [["primary", MODELS.primary, 25000], ["fallback", MODELS.fallback, 30000]]) {
+  for (const [tier, cfg, timeout] of [["primary", MODELS.primary, 25000], ["secondary", MODELS.secondary, 20000], ["fallback", MODELS.fallback, 30000]]) {
     try {
       const r = await callChat(cfg, messages, timeout);
       return { ...r, parsed: parseJSON(r.content), tier, errors };
@@ -230,6 +233,8 @@ export async function answer(message, history = []) {
   let { status, answer: text } = gen.parsed;
   const validStatus = ["answered", "partial", "no_answer", "needs_agent", "out_of_scope"];
   if (!validStatus.includes(status)) status = "partial";
+  // Account-action requests always end with an agent, whatever the model decided.
+  if (ACCOUNT_ACTION.test(question) && ["answered", "partial"].includes(status)) status = "needs_agent";
   let guardrailNote = null;
   if (check.problems.length) {
     // Still failing after repair: never show an unverified answer.
@@ -252,7 +257,7 @@ export async function answer(message, history = []) {
     sources: showSources ? sourceCards(results, cited) : [],
     confidence: confidenceOf(status, topScore),
     modelUsed: { tier: gen.tier, provider: gen.provider, model: gen.model },
-    fallbackReason: gen.tier === "fallback" ? gen.errors[0] : undefined,
+    fallbackReason: gen.tier !== "primary" ? gen.errors[0] : undefined,
     repairAttempted: attempts > 0,
     usage,
     retrieval: { topScore: +topScore.toFixed(2), ids: results.map((r) => r.chunk.id) },
