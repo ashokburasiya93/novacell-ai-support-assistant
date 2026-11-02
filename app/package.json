@@ -1,0 +1,14 @@
+{
+  "name": "novacell-support-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Grounded AI self-serve support assistant for NovaCell Tier-1 questions",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node server.js",
+    "build:kb": "python scripts/build_kb.py",
+    "eval:dev": "node evals/run.js dev",
+    "eval:holdout": "node evals/run.js holdout"
+  }
+}

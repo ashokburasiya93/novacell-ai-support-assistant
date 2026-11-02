@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NovaCell Support Assistant</title>
+<meta name="description" content="Ask NovaCell support questions in plain language. Answers come only from NovaCell's FAQ, resolved tickets, technical guide and plan catalogue.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f766e'/><path d='M9 22V10l14 12V10' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#14181f; --muted:#5b6472; --line:#e3e6eb;
+  --brand:#0f766e; --brand-ink:#ffffff; --brand-soft:#e6f4f2;
+  --user:#0f766e; --user-ink:#ffffff;
+  --ok:#15803d; --ok-soft:#e8f6ec; --warn:#b45309; --warn-soft:#fdf3e4; --bad:#b91c1c; --bad-soft:#fdecec; --info:#1d4ed8; --info-soft:#e9effd;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f1216; --panel:#171b21; --ink:#e7eaee; --muted:#9aa4b2; --line:#2a313b;
+    --brand:#2dd4bf; --brand-ink:#05201d; --brand-soft:#11312e; --user:#14b8a6; --user-ink:#04201d;
+    --ok:#4ade80; --ok-soft:#12291a; --warn:#fbbf24; --warn-soft:#2d230f; --bad:#f87171; --bad-soft:#2f1515; --info:#93b4ff; --info-soft:#18213a;
+    --shadow:none;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;flex-direction:column}
+header{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:650;font-size:16px}
+.logo svg{width:30px;height:30px}
+.logo small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.badge{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--bg);color:var(--muted);white-space:nowrap}
+.chip b{color:var(--ink);font-weight:600}
+.chip.live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-right:6px;vertical-align:1px}
+.chip.down::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--bad);margin-right:6px;vertical-align:1px}
+main{flex:1;overflow-y:auto}
+.wrap{max-width:780px;margin:0 auto;padding:20px 16px 8px}
+.intro{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+.intro h1{font-size:20px;margin:0 0 4px}
+.intro p{margin:0 0 12px;color:var(--muted)}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.topic{text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:10px 12px;cursor:pointer;font:inherit}
+.topic:hover{border-color:var(--brand)}
+.topic span{display:block;font-size:12px;color:var(--muted)}
+.msg{display:flex;margin:14px 0}
+.msg.user{justify-content:flex-end}
+.bubble{max-width:88%;border-radius:14px;padding:10px 14px;box-shadow:var(--shadow)}
+.user .bubble{background:var(--user);color:var(--user-ink);border-bottom-right-radius:4px;white-space:pre-wrap}
+.bot .bubble{background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:4px;width:88%}
+.meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px;font-size:12px}
+.pill{border-radius:999px;padding:2px 9px;font-weight:600}
+.s-answered{background:var(--ok-soft);color:var(--ok)}
+.s-partial,.s-needs_agent{background:var(--warn-soft);color:var(--warn)}
+.s-no_answer,.s-out_of_scope,.s-greeting{background:var(--info-soft);color:var(--info)}
+.s-blocked,.s-emergency,.s-error{background:var(--bad-soft);color:var(--bad)}
+.conf{color:var(--muted)}
+.text{white-space:pre-wrap}
+.note{margin-top:8px;padding:8px 10px;border-radius:8px;font-size:13px}
+.note.handoff{background:var(--brand-soft)}
+.note.pii{background:var(--warn-soft)}
+details.sources{margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
+details.sources summary{cursor:pointer;color:var(--muted);font-size:13px}
+.src{border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin-top:8px;font-size:13px}
+.src .h{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-weight:600}
+.src .t{font-size:11px;text-transform:uppercase;letter-spacing:.04em;border-radius:6px;padding:1px 6px;background:var(--bg);border:1px solid var(--line);color:var(--muted)}
+.src .where{color:var(--muted);font-weight:400;font-size:12px}
+.src p{margin:4px 0 0;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.fb button{border:1px solid var(--line);background:none;border-radius:8px;padding:2px 8px;cursor:pointer;color:var(--muted);font:inherit}
+.fb button.on{border-color:var(--brand);color:var(--brand)}
+.typing{color:var(--muted);font-style:italic}
+form{position:sticky;bottom:0;background:var(--bg);border-top:1px solid var(--line)}
+.inp{max-width:780px;margin:0 auto;padding:10px 16px 12px;display:flex;gap:8px}
+textarea{flex:1;resize:none;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;background:var(--panel);color:var(--ink);min-height:44px;max-height:140px}
+textarea:focus{outline:2px solid var(--brand);outline-offset:-1px}
+button.send{border:0;border-radius:12px;padding:0 18px;background:var(--brand);color:var(--brand-ink);font-weight:600;cursor:pointer;font:inherit}
+button.send:disabled{opacity:.5;cursor:default}
+.disclaimer{max-width:780px;margin:0 auto;padding:0 16px 10px;font-size:11.5px;color:var(--muted)}
+@media (max-width:560px){ .badge{margin-left:0;width:100%} .bubble,.bot .bubble{max-width:100%;width:100%} }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--brand)"/><path d="M9 22V10l14 12V10" stroke="var(--brand-ink)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div>NovaCell Support Assistant<small>Answers only from NovaCell's verified knowledge</small></div>
+  </div>
+  <div class="badge" id="badge"><span class="chip">Checking models…</span></div>
+</header>
+
+<main id="scroll">
+  <div class="wrap" id="log">
+    <section class="intro" id="intro">
+      <h1>How can we help today?</h1>
+      <p>Ask in your own words. I answer from NovaCell's FAQ, resolved support cases, the technical guide and the plan catalogue, and I show you the source. If I'm not sure, I'll say so and point you to an agent.</p>
+      <div class="topics" id="topics"></div>
+    </section>
+  </div>
+</main>
+
+<form id="f" autocomplete="off">
+  <div class="inp">
+    <textarea id="q" rows="1" placeholder="e.g. My data is really slow since this morning" aria-label="Your question" maxlength="800"></textarea>
+    <button class="send" id="send" type="submit">Send</button>
+  </div>
+  <div class="disclaimer">Prototype on synthetic data. I can't see or change your account, and you should never share card numbers, passwords or PINs here. For account changes call 611.</div>
+</form>
+
+<script>
+const TOPICS = [
+  ["Slow or dropped data", "My mobile data is really slow, what can I do?"],
+  ["Unexpected charges", "Why is my bill higher than usual this month?"],
+  ["SIM / eSIM activation", "My eSIM QR code won't scan, what should I do?"],
+  ["Roaming before travel", "I'm going to Spain next week. What do I need to set up?"],
+  ["Voice-call issues", "My calls keep dropping. How do I fix it?"],
+  ["Account & app", "I can't log in to the app and the reset email isn't arriving"],
+];
+const STATUS = {
+  answered: "Answered", partial: "Partly answered", needs_agent: "Needs an agent", no_answer: "Not in my knowledge",
+  out_of_scope: "Outside what I cover", blocked: "Request declined", emergency: "Emergency", greeting: "Hello", error: "Service unavailable",
+};
+const TYPE = { faq: "FAQ", ticket: "Past ticket", guide: "Guide", plan: "Plan" };
+const $ = (s) => document.querySelector(s);
+const log = $("#log"), q = $("#q"), send = $("#send");
+const history = [];
+
+for (const [label, prompt] of TOPICS) {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "topic";
+  b.innerHTML = `${label}<span>${esc(prompt)}</span>`;
+  b.onclick = () => ask(prompt);
+  $("#topics").appendChild(b);
+}
+
+function esc(s) { return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+function scrollDown() { const m = $("#scroll"); m.scrollTop = m.scrollHeight; }
+
+fetch("/api/health").then((r) => r.json()).then((h) => {
+  const p = h.models.primary, f = h.models.fallback;
+  $("#badge").innerHTML =
+    `<span class="chip ${h.keys.groq ? "live" : "down"}">Primary <b>${esc(p.model)}</b> · ${esc(p.provider)}</span>` +
+    `<span class="chip ${h.keys.openrouter ? "live" : "down"}">Fallback <b>${esc(f.model)}</b> · ${esc(f.provider)}</span>` +
+    `<span class="chip">${h.kb.chunks} verified sources</span>`;
+}).catch(() => { $("#badge").innerHTML = `<span class="chip down">Model status unavailable</span>`; });
+
+function addUser(text) {
+  const d = document.createElement("div");
+  d.className = "msg user";
+  d.innerHTML = `<div class="bubble">${esc(text)}</div>`;
+  log.appendChild(d);
+}
+
+function addBot(r) {
+  const d = document.createElement("div");
+  d.className = "msg bot";
+  const conf = r.confidence ? `<span class="conf">Confidence: ${r.confidence}</span>` : "";
+  const srcs = (r.sources || []).map((s) => `
+    <div class="src"><div class="h"><span class="t">${TYPE[s.type] || s.type}</span>${esc(s.title)} <span class="where">${esc(s.id)} · ${esc(s.source)}</span></div>
+    <p>${esc(s.snippet)}${s.snippet.length >= 280 ? "…" : ""}</p></div>`).join("");
+  const model = r.modelUsed ? `${r.modelUsed.tier === "fallback" ? "Fallback · " : ""}${esc(r.modelUsed.model)} · ${(r.latencyMs / 1000).toFixed(1)}s` : "Rule-based guardrail · no model call";
+  d.innerHTML = `<div class="bubble">
+    <div class="meta"><span class="pill s-${r.status}">${STATUS[r.status] || r.status}</span>${conf}</div>
+    <div class="text">${esc(r.answer)}</div>
+    ${r.piiNote ? `<div class="note pii">${esc(r.piiNote)}</div>` : ""}
+    ${r.handoff ? `<div class="note handoff">${esc(r.handoff)}</div>` : ""}
+    ${srcs ? `<details class="sources" ${r.status === "answered" ? "" : "open"}><summary>Sources (${r.sources.length})</summary>${srcs}</details>` : ""}
+    <div class="foot"><span>${model}</span>
+      <span class="fb">Helpful? <button type="button" data-v="up" aria-label="Helpful">👍</button> <button type="button" data-v="down" aria-label="Not helpful">👎</button></span></div>
+  </div>`;
+  d.querySelectorAll(".fb button").forEach((b) => b.onclick = () => {
+    d.querySelectorAll(".fb button").forEach((x) => x.classList.remove("on")); b.classList.add("on");
+  });
+  log.appendChild(d);
+}
+
+async function ask(text) {
+  text = text.trim();
+  if (!text || send.disabled) return;
+  $("#intro")?.remove();
+  addUser(text);
+  q.value = ""; q.style.height = "";
+  send.disabled = true;
+  const t = document.createElement("div");
+  t.className = "msg bot"; t.innerHTML = `<div class="bubble typing">Checking NovaCell's knowledge…</div>`;
+  log.appendChild(t); scrollDown();
+  try {
+    const res = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: text, history }) });
+    const r = await res.json();
+    t.remove(); addBot(r);
+    history.push({ role: "user", content: text }, { role: "assistant", content: r.answer });
+    while (history.length > 4) history.shift();
+  } catch (e) {
+    t.remove(); addBot({ status: "error", answer: "Sorry, I couldn't connect. Please try again, or call 611 to reach an agent.", sources: [] });
+  }
+  send.disabled = false; q.focus(); scrollDown();
+}
+
+$("#f").onsubmit = (e) => { e.preventDefault(); ask(q.value); };
+q.addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(q.value); } });
+q.addEventListener("input", () => { q.style.height = "auto"; q.style.height = Math.min(q.scrollHeight, 140) + "px"; });
+</script>
+</body>
+</html>

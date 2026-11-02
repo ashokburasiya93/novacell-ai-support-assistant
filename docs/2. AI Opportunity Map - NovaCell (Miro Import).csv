@@ -1,0 +1,90 @@
+﻿Frame,Type,Title,Text,Color,Impact,Feasibility,Score,Quadrant
+1 Header,Sticky,Persona,"Priya, NovaCell prepaid customer (synthetic persona). Asks in plain language, usually on her phone and mid-problem: slow data, a surprise charge, an eSIM that won't activate, roaming before a trip.",yellow,,,,
+1 Header,Sticky,Root cause,"NovaCell does not lack answers; it lacks one trustworthy place to get them. Knowledge is split across a 25-entry FAQ, an internal PDF guide and agent-only ticket history, and parts contradict each other, so customers only trust a human agent.",yellow,,,,
+1 Header,Sticky,Evidence (dataset),"8 of 20 resolved tickets (40%) were fixed with steps the customer could do alone. FAQ has no eSIM entry although eSIM is a top theme. EU roaming $15/day (FAQ) vs International Day Pass $10/day (plan catalogue). Guide is marked Internal Use Only. Tickets record one-off goodwill credits ($30, 500 MB).",yellow,,,,
+1 Header,Sticky,Goal,"Find where AI genuinely helps a customer get a correct Tier-1 answer without an agent, score it, and scope a safe MVP for the PRD.",yellow,,,,
+2 Workflow,Sticky,S1 Problem occurs | Today,"Data slows, a call drops, a bill looks wrong, an eSIM fails, a trip is coming up.",gray,,,,
+2 Workflow,Sticky,S1 Problem occurs | Pain,Customer often has no data or is abroad; doesn't know the right words for the problem.,red,,,,
+2 Workflow,Sticky,S1 Problem occurs | AI opportunities,"O1, O4",light_green,,,,
+2 Workflow,Sticky,S2 Looks for help | Today,"Google, then the FAQ page or app Help, keyword search over 25 FAQs.",gray,,,,
+2 Workflow,Sticky,S2 Looks for help | Pain,FAQ wording doesn't match 'internet crawling'; troubleshooting steps live in an internal PDF; no eSIM FAQ.,red,,,,
+2 Workflow,Sticky,S2 Looks for help | AI opportunities,"O1, O2, O5, O15",light_green,,,,
+2 Workflow,Sticky,S3 Contacts support | Today,Calls 611 or opens live chat (8am-10pm); waits in queue; explains the story again.,gray,,,,
+2 Workflow,Sticky,S3 Contacts support | Pain,Hold time for questions an FAQ could answer; out-of-hours customers wait until morning.,red,,,,
+2 Workflow,Sticky,S3 Contacts support | AI opportunities,"O1, O3",light_green,,,,
+2 Workflow,Sticky,S4 Agent diagnoses | Today,"Agent searches the guide and past tickets, often from memory.",gray,,,,
+2 Workflow,Sticky,S4 Agent diagnoses | Pain,Repetitive Tier-1 work burns agents out; different agents give different answers.,red,,,,
+2 Workflow,Sticky,S4 Agent diagnoses | AI opportunities,"O3, O7",light_green,,,,
+2 Workflow,Sticky,S5 Resolution / account action | Today,"Agent changes settings, re-provisions SIM, issues credit or escalates to network team.",gray,,,,
+2 Workflow,Sticky,S5 Resolution / account action | Pain,"Some fixes truly need an agent (call barring, SIM provisioning, refunds); the customer can't tell which.",red,,,,
+2 Workflow,Sticky,S5 Resolution / account action | AI opportunities,"O3, O8, O9, O11",light_green,,,,
+2 Workflow,Sticky,S6 Bill and follow-up | Today,Customer checks the next bill; repeat contact if it didn't work.,gray,,,,
+2 Workflow,Sticky,S6 Bill and follow-up | Pain,Bill shock from roaming bundles activated late; promo expiry surprises; repeat calls.,red,,,,
+2 Workflow,Sticky,S6 Bill and follow-up | AI opportunities,"O5, O8, O10",light_green,,,,
+2 Workflow,Sticky,S7 Knowledge upkeep | Today,FAQ edited by marketing; guide by network ops; tickets never turned into FAQs.,gray,,,,
+2 Workflow,Sticky,S7 Knowledge upkeep | Pain,"Conflicting prices and old branding (MyTelecom, telecom.example.com) go unnoticed.",red,,,,
+2 Workflow,Sticky,S7 Knowledge upkeep | AI opportunities,O6,light_green,,,,
+3 Opportunities,Card,O1 Grounded plain-language Q&A,"Answer Tier-1 questions from FAQ, resolved tickets, the customer-safe guide and the plan catalogue, retrieved per question. Why AI: understanding messy questions ('internet crawling') and combining 3 sources is what retrieval + LLM does well; rules can't cover the phrasing. Evidence: 40% of tickets self-resolvable; FAQ wording mismatch. Stage: S1-S3",blue,5,5,25,Do first (MVP)
+3 Opportunities,Card,O2 Citations and confidence on every answer,"Show the source (FAQ id, ticket, guide page, plan) and a confidence level with each answer. Why AI: makes AI answers checkable; low cost once retrieval exists. Evidence: customers distrust inconsistent answers. Stage: S2",blue,4,5,20,Do first (MVP)
+3 Opportunities,Card,O3 Know when to stop: abstain and hand off,"Say 'I don't have verified information' when retrieval is weak, detect account-specific requests (refund, cancel, check my bill) and route to 611 / live chat. Why AI: intent detection in free text; a wrong confident answer is costly. Evidence: refunds, provisioning, call barring need agents. Stage: S3-S5",blue,5,4,20,Do first (MVP)
+3 Opportunities,Card,O4 Guided troubleshooting steps,"Turn guide and ticket fixes into short numbered steps for data, SIM and calls. Why AI: rewriting agent-facing text into plain customer steps. Evidence: guide section 2 steps 1-6; TK-001, TK-014, TK-019. Stage: S1",blue,4,4,16,Do first (MVP)
+3 Opportunities,Card,O5 Plan and roaming explainer,"Answer plan, pass and price questions from the plan catalogue only, with conflict warnings. Why AI: comparing 14 products in plain language; numbers must be checked. Evidence: roaming price conflict; TK-004 bundle-timing bill shock. Stage: S2, S6",blue,4,4,16,Do first (MVP)
+3 Opportunities,Card,O6 Knowledge gap and conflict log,"Log questions the assistant couldn't answer and source conflicts for the content owner. Why AI: by-product of O1/O3; later, cluster unanswered questions. Evidence: no eSIM FAQ; $15 vs $10 roaming. Stage: S7",blue,3,4,12,Quick add-on
+3 Opportunities,Card,"O7 Agent assist (same engine, internal sources)","Agents ask the same engine with access to internal guide sections. Why AI: faster diagnosis, consistent answers. Evidence: agent burnout on repetitive tickets. Stage: S4",blue,4,3,12,Plan next
+3 Opportunities,Card,O8 Personal bill explainer,"Explain the customer's own itemised bill line by line. Why AI: high value, but needs authenticated account and billing data not in the dataset. Evidence: FAQ-16, TK-004, TK-016. Stage: S5-S6",blue,5,2,10,Plan next
+3 Opportunities,Card,O9 Account actions in chat,"Turn on roaming, change plan, re-send an eSIM code from chat. Why AI: needs back-end integration, authentication and fraud controls (SIM-swap risk). Stage: S5",blue,4,2,8,Plan next
+3 Opportunities,Card,O10 Proactive outage alerts,"Tell customers about outages in their area before they ask. Why AI: needs live network data; mostly rules, not AI. Evidence: TK-015. Stage: S6",blue,3,2,6,Park / avoid
+3 Opportunities,Card,O11 Automated refunds and goodwill credits,Decide and issue credits automatically. Why AI: tickets show one-off credits; automating them invites abuse and inconsistent policy. Stage: S5,blue,3,1,3,Park / avoid
+3 Opportunities,Card,O12 Voice bot replacing the IVR,"Same answers over the phone line. Why AI: speech adds latency, cost and error; prove text first. Stage: S3",blue,3,2,6,Park / avoid
+3 Opportunities,Card,O13 Churn / sentiment prediction,Predict who will leave. Why AI: no outcome data in the dataset; not where the pain is. Stage: S6,blue,2,1,2,Park / avoid
+3 Opportunities,Card,O14 Personal plan recommendation,Recommend a plan from the customer's usage. Why AI: needs usage data; a catalogue-only version is covered by O5. Stage: S6,blue,3,3,9,Park / avoid
+3 Opportunities,Card,O15 Multilingual answers,Answer in the customer's language from English sources. Why AI: LLMs translate well; adds eval burden. Stage: S2,blue,3,4,12,Quick add-on
+4 Scoring,Sticky,Scoring rubric,Impact (1-5): share of Tier-1 contacts affected + customer pain + strength of dataset evidence. Feasibility (1-5): data available in the dataset + maturity of the AI technique + cost of being wrong + free-tier build effort. Score = Impact x Feasibility (max 25). Do first = Impact >= 4 and Feasibility >= 4.,yellow,,,,
+5 Impact x Feasibility 2x2,Sticky,O1 Grounded plain-language Q&A,I5 x F5 = 25,green,5,5,25,Do first (MVP)
+5 Impact x Feasibility 2x2,Sticky,O2 Citations and confidence on every answer,I4 x F5 = 20,green,4,5,20,Do first (MVP)
+5 Impact x Feasibility 2x2,Sticky,O3 Know when to stop: abstain and hand off,I5 x F4 = 20,green,5,4,20,Do first (MVP)
+5 Impact x Feasibility 2x2,Sticky,O4 Guided troubleshooting steps,I4 x F4 = 16,green,4,4,16,Do first (MVP)
+5 Impact x Feasibility 2x2,Sticky,O5 Plan and roaming explainer,I4 x F4 = 16,green,4,4,16,Do first (MVP)
+5 Impact x Feasibility 2x2,Sticky,O6 Knowledge gap and conflict log,I3 x F4 = 12,light_blue,3,4,12,Quick add-on
+5 Impact x Feasibility 2x2,Sticky,"O7 Agent assist (same engine, internal sources)",I4 x F3 = 12,yellow,4,3,12,Plan next
+5 Impact x Feasibility 2x2,Sticky,O15 Multilingual answers,I3 x F4 = 12,light_blue,3,4,12,Quick add-on
+5 Impact x Feasibility 2x2,Sticky,O8 Personal bill explainer,I5 x F2 = 10,yellow,5,2,10,Plan next
+5 Impact x Feasibility 2x2,Sticky,O14 Personal plan recommendation,I3 x F3 = 9,gray,3,3,9,Park / avoid
+5 Impact x Feasibility 2x2,Sticky,O9 Account actions in chat,I4 x F2 = 8,yellow,4,2,8,Plan next
+5 Impact x Feasibility 2x2,Sticky,O10 Proactive outage alerts,I3 x F2 = 6,gray,3,2,6,Park / avoid
+5 Impact x Feasibility 2x2,Sticky,O12 Voice bot replacing the IVR,I3 x F2 = 6,gray,3,2,6,Park / avoid
+5 Impact x Feasibility 2x2,Sticky,O11 Automated refunds and goodwill credits,I3 x F1 = 3,gray,3,1,3,Park / avoid
+5 Impact x Feasibility 2x2,Sticky,O13 Churn / sentiment prediction,I2 x F1 = 2,gray,2,1,2,Park / avoid
+6 Should / Should NOT,Sticky,Should do,"Answer only from NovaCell's FAQ, resolved tickets, the customer-safe guide and the plan catalogue.",green,,,,
+6 Should / Should NOT,Sticky,Should do,Show the source and a confidence level with every answer.,green,,,,
+6 Should / Should NOT,Sticky,Should do,Give short numbered troubleshooting steps a customer can do alone.,green,,,,
+6 Should / Should NOT,Sticky,Should do,"Say 'I don't have verified information' instead of guessing, and hand off to 611 / live chat.",green,,,,
+6 Should / Should NOT,Sticky,Should do,Use the plan catalogue as the price source of truth and warn when sources disagree.,green,,,,
+6 Should / Should NOT,Sticky,Should do,"Strip card numbers, passwords and PINs before anything reaches the model.",green,,,,
+6 Should / Should NOT,Sticky,Should do,Log unanswered questions and source conflicts for the knowledge owner.,green,,,,
+6 Should / Should NOT,Sticky,Should NOT do,"Invent prices, fees, allowances, timings or policies.",red,,,,
+6 Should / Should NOT,Sticky,Should NOT do,"Promise refunds, credits, waivers or compensation (even though past tickets show some).",red,,,,
+6 Should / Should NOT,Sticky,Should NOT do,"See, change or act on a customer's account (no plan changes, cancellations or SIM swaps).",red,,,,
+6 Should / Should NOT,Sticky,Should NOT do,"Reveal internal procedures: fraud unbarring, identity-verification checklists, back-end systems.",red,,,,
+6 Should / Should NOT,Sticky,Should NOT do,"Answer off-topic, competitor, legal or medical questions.",red,,,,
+6 Should / Should NOT,Sticky,Should NOT do,Replace emergency services: emergencies get a fixed 'call your local emergency number' reply.,red,,,,
+6 Should / Should NOT,Sticky,Should NOT do,Store chat text or personal data.,red,,,,
+7 Feature to AI to Guardrails,Table row,F1 Grounded Answer Engine,"From: O1, O4, O5 | AI capability: Retrieval (BM25 over 102 chunks with telecom synonyms) + generation (LLM, JSON output) | Inputs: customer question, last 2 turns, top 6 sources (+2 plan entries for price questions) | Output: plain-language answer, numbered steps, cited source ids | Guardrails: answer only from sources; priority Plan > Guide > FAQ > Ticket; 120-word cap | Human in loop: customer can open every source | Test: key-fact and citation accuracy on dev and held-out sets",violet,,,,
+7 Feature to AI to Guardrails,Table row,F2 Trust Layer,"From: O2 | AI capability: deterministic validation of model output | Inputs: model answer + cited sources | Output: status pill, confidence, source cards | Guardrails: every number in the answer must appear in a cited source; no citation = no answer; one repair attempt, then a safe fallback | Human in loop: none per answer | Test: grounding gate 100%",violet,,,,
+7 Feature to AI to Guardrails,Table row,F3 Know-When-To-Stop,"From: O3 | AI capability: retrieval-score threshold + intent classification by the LLM (status field) | Inputs: retrieval score, question | Output: no_answer / needs_agent / out_of_scope with 611 and live-chat handoff | Guardrails: below threshold no model call is made; account actions always go to an agent | Human in loop: agent takes over | Test: abstention accuracy >= 90%; account-action gate 100%",violet,,,,
+7 Feature to AI to Guardrails,Table row,F4 Safety Guardrails,"From: Should NOT list | AI capability: rules before and after the model | Inputs: raw message, model answer | Output: redacted text, blocked or emergency replies | Guardrails: PII redaction (Luhn card check, passwords, PINs, emails), prompt-injection block, emergency reply, promise and internal-term filters, internal guide sections excluded at build time | Human in loop: none | Test: safety gates 100% on both sets",violet,,,,
+7 Feature to AI to Guardrails,Table row,F5 Knowledge Feedback Loop (light),"From: O6 | AI capability: logging now, clustering of abstentions later | Inputs: status of each answer (no text stored) | Output: counts of no_answer by topic; conflict list in README | Guardrails: no chat text stored | Human in loop: knowledge owner fixes content | Test: weekly review of top unanswered topics",violet,,,,
+7 Feature to AI to Guardrails,Table row,Next (post-MVP),"From: O7, O8, O15 | Agent assist on internal sources; authenticated personal bill explainer; multilingual | Guardrails: same as F1-F4 plus authentication and audit | Test: run once the MVP proves self-resolution",violet,,,,
+8 Guardrails & risks,Sticky,Global guardrail,Grounded only: every answer cites a NovaCell source; numbers are checked against it.,orange,,,,
+8 Guardrails & risks,Sticky,Global guardrail,"Uncertainty is visible: confidence shown; weak retrieval means 'I don't know', not a guess.",orange,,,,
+8 Guardrails & risks,Sticky,Global guardrail,"No account actions and no promises: refunds, credits and changes go to an agent.",orange,,,,
+8 Guardrails & risks,Sticky,Global guardrail,Least data: PII is removed before the model; chat text is not stored.,orange,,,,
+8 Guardrails & risks,Sticky,Global guardrail,"Fail safe: if both models fail, the customer gets the 611 / live chat handoff, never a made-up answer.",orange,,,,
+8 Guardrails & risks,Sticky,Global guardrail,"Two models: Groq primary with OpenRouter fallback, so an outage or rate limit doesn't take the assistant down.",orange,,,,
+8 Guardrails & risks,Sticky,Risk: Confident wrong answer (invented price or policy),"Mitigation: number grounding check, citation required, repair then abstain; eval gate 100%",orange,,,,
+8 Guardrails & risks,Sticky,Risk: Bot promises a refund because a past ticket shows one,Mitigation: goodwill sentences stripped at build time; promise filter; account requests routed to an agent,orange,,,,
+8 Guardrails & risks,Sticky,Risk: Internal procedures leak from the 'Internal Use Only' guide,Mitigation: agent-only sections excluded from the knowledge base; internal-term filter,orange,,,,
+8 Guardrails & risks,Sticky,Risk: Conflicting sources give two prices,Mitigation: plan catalogue is the source of truth; mention both and ask to confirm; log conflict for the owner,orange,,,,
+8 Guardrails & risks,Sticky,Risk: Customers don't trust or use it,"Mitigation: show sources; fast answers; easy handoff; measure resolution, not just deflection",orange,,,,
+8 Guardrails & risks,Sticky,Risk: Free-tier rate limits at peak,Mitigation: automatic fallback model; retrieval threshold skips model calls for off-topic questions; paid tier at rollout,orange,,,,
+9 Hand-off,Sticky,Step 3 PRD,"North Star candidate = Verified Self-Resolution Rate: % of Tier-1 conversations resolved in the assistant with a cited answer and no agent contact within 7 days. Supporting: correct-abstention rate, citation accuracy, grounding (0 invented numbers), handoff rate, answer CSAT, cost per resolved conversation vs agent cost.",yellow,,,,
