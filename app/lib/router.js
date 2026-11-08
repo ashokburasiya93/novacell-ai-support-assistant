@@ -53,7 +53,7 @@ export async function routeWithLLM(text, model, { timeoutMs = 20000 } = {}) {
   };
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), timeoutMs);
-  const t0 = Date.now();
+  let t0 = Date.now();
   try {
     const send = () =>
       fetch("https://api.groq.com/openai/v1/chat/completions", {
@@ -66,6 +66,7 @@ export async function routeWithLLM(text, model, { timeoutMs = 20000 } = {}) {
     const wait = Number(res.headers.get("retry-after"));
     if (res.status === 429 && wait > 0 && wait <= 15) {
       await new Promise((r) => setTimeout(r, wait * 1000));
+      t0 = Date.now(); // latency excludes the free-tier rate-limit wait
       res = await send();
     }
     if (!res.ok) {
