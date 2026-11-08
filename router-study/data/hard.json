@@ -1,0 +1,402 @@
+[
+ {
+  "id": "HD-data-01",
+  "text": "net not wrking since mrng pls help",
+  "label": "data"
+ },
+ {
+  "id": "HD-data-02",
+  "text": "bought the 10gb thing yesterday but still feels like dial-up",
+  "label": "data"
+ },
+ {
+  "id": "HD-data-03",
+  "text": "my hotspot thingy isnt sharing to my ipad",
+  "label": "data"
+ },
+ {
+  "id": "HD-data-04",
+  "text": "is there a way to get more gigs without changing my whole plan?",
+  "label": "data"
+ },
+ {
+  "id": "HD-data-05",
+  "text": "Hi, I'm working from a cafe and my laptop needs internet from my phone, is that allowed on my plan or do I need something extra?",
+  "label": "data"
+ },
+ {
+  "id": "HD-data-06",
+  "text": "youtube is unwatchable",
+  "label": "data"
+ },
+ {
+  "id": "HD-data-07",
+  "text": "data",
+  "label": "data"
+ },
+ {
+  "id": "HD-data-08",
+  "text": "how come my speeds tank every night around 9",
+  "label": "data"
+ },
+ {
+  "id": "HD-data-09",
+  "text": "the little 5G sign never shows up even though I'm in the city",
+  "label": "data"
+ },
+ {
+  "id": "HD-data-10",
+  "text": "gb left?",
+  "label": "data"
+ },
+ {
+  "id": "HD-billing-01",
+  "text": "y is my bill more than the plan price??",
+  "label": "billing"
+ },
+ {
+  "id": "HD-billing-02",
+  "text": "when do u take the money",
+  "label": "billing"
+ },
+ {
+  "id": "HD-billing-03",
+  "text": "hi, I just want to understand what all the fees on my first bill are, it's confusing",
+  "label": "billing"
+ },
+ {
+  "id": "HD-billing-04",
+  "text": "can i pay thru paypal",
+  "label": "billing"
+ },
+ {
+  "id": "HD-billing-05",
+  "text": "what's this 'regulatory recovery' thing",
+  "label": "billing"
+ },
+ {
+  "id": "HD-billing-06",
+  "text": "bill pdf where",
+  "label": "billing"
+ },
+ {
+  "id": "HD-billing-07",
+  "text": "do you remind me before auto-debit",
+  "label": "billing"
+ },
+ {
+  "id": "HD-billing-08",
+  "text": "if I switch plans halfway through the month how is that charged?",
+  "label": "billing"
+ },
+ {
+  "id": "HD-billing-09",
+  "text": "premium sms - what is it and why is it on my statement",
+  "label": "billing"
+ },
+ {
+  "id": "HD-billing-10",
+  "text": "price of max plan",
+  "label": "billing"
+ },
+ {
+  "id": "HD-sim-01",
+  "text": "sim not workin new phone",
+  "label": "sim"
+ },
+ {
+  "id": "HD-sim-02",
+  "text": "esim??",
+  "label": "sim"
+ },
+ {
+  "id": "HD-sim-03",
+  "text": "lost my phone at the station, what do I do so nobody uses my number",
+  "label": "sim"
+ },
+ {
+  "id": "HD-sim-04",
+  "text": "I want to keep my old number from my previous carrier, how does that work",
+  "label": "sim"
+ },
+ {
+  "id": "HD-sim-05",
+  "text": "can I stick your sim in my phone from Dubai",
+  "label": "sim"
+ },
+ {
+  "id": "HD-sim-06",
+  "text": "put wrong pin 3 times now it wants some PUK thing",
+  "label": "sim"
+ },
+ {
+  "id": "HD-sim-07",
+  "text": "qr scan fails every time for the e sim",
+  "label": "sim"
+ },
+ {
+  "id": "HD-sim-08",
+  "text": "do i need a new sim for my new phone or can i just move it",
+  "label": "sim"
+ },
+ {
+  "id": "HD-sim-09",
+  "text": "phone says no sim even tho its in there",
+  "label": "sim"
+ },
+ {
+  "id": "HD-sim-10",
+  "text": "unlock code for my handset?",
+  "label": "sim"
+ },
+ {
+  "id": "HD-roaming-01",
+  "text": "flying to bkk tmrw what do i need to do with my phone",
+  "label": "roaming"
+ },
+ {
+  "id": "HD-roaming-02",
+  "text": "landed in paris, phone useless",
+  "label": "roaming"
+ },
+ {
+  "id": "HD-roaming-03",
+  "text": "how much for using phone in uk per day",
+  "label": "roaming"
+ },
+ {
+  "id": "HD-roaming-04",
+  "text": "my brother got a huge bill abroad, how do i make sure that doesn't happen to me",
+  "label": "roaming"
+ },
+ {
+  "id": "HD-roaming-05",
+  "text": "travel pass worth it for 10 days?",
+  "label": "roaming"
+ },
+ {
+  "id": "HD-roaming-06",
+  "text": "will I pay if someone calls me while I'm in Spain",
+  "label": "roaming"
+ },
+ {
+  "id": "HD-roaming-07",
+  "text": "abroad next week",
+  "label": "roaming"
+ },
+ {
+  "id": "HD-roaming-08",
+  "text": "data roaming switch - leave it on?",
+  "label": "roaming"
+ },
+ {
+  "id": "HD-roaming-09",
+  "text": "can I use the hotspot while on the travel pass in Italy",
+  "label": "roaming"
+ },
+ {
+  "id": "HD-roaming-10",
+  "text": "is canada included in the pass",
+  "label": "roaming"
+ },
+ {
+  "id": "HD-calls-01",
+  "text": "cant hear ppl on calls",
+  "label": "calls"
+ },
+ {
+  "id": "HD-calls-02",
+  "text": "calls keep cuttin off mid convo",
+  "label": "calls"
+ },
+ {
+  "id": "HD-calls-03",
+  "text": "how do i get my voicemail set",
+  "label": "calls"
+ },
+ {
+  "id": "HD-calls-04",
+  "text": "phone never rings it just goes to vm",
+  "label": "calls"
+ },
+ {
+  "id": "HD-calls-05",
+  "text": "wifi calling - how",
+  "label": "calls"
+ },
+ {
+  "id": "HD-calls-06",
+  "text": "how much to ring my mum in Kerala",
+  "label": "calls"
+ },
+ {
+  "id": "HD-calls-07",
+  "text": "spam callers driving me mad",
+  "label": "calls"
+ },
+ {
+  "id": "HD-calls-08",
+  "text": "my phone only says SOS",
+  "label": "calls"
+ },
+ {
+  "id": "HD-calls-09",
+  "text": "i can browse but cant make a call",
+  "label": "calls"
+ },
+ {
+  "id": "HD-calls-10",
+  "text": "volte where in settings",
+  "label": "calls"
+ },
+ {
+  "id": "HD-account-01",
+  "text": "forgot pw for app",
+  "label": "account"
+ },
+ {
+  "id": "HD-account-02",
+  "text": "app keeps kicking me out",
+  "label": "account"
+ },
+ {
+  "id": "HD-account-03",
+  "text": "need to change my email on file",
+  "label": "account"
+ },
+ {
+  "id": "HD-account-04",
+  "text": "otp for app not coming",
+  "label": "account"
+ },
+ {
+  "id": "HD-account-05",
+  "text": "where do I find acct number",
+  "label": "account"
+ },
+ {
+  "id": "HD-account-06",
+  "text": "how can my wife also manage the account?",
+  "label": "account"
+ },
+ {
+  "id": "HD-account-07",
+  "text": "app just spins forever",
+  "label": "account"
+ },
+ {
+  "id": "HD-account-08",
+  "text": "locked out of my online account",
+  "label": "account"
+ },
+ {
+  "id": "HD-account-09",
+  "text": "change my address pls - how do I do it in the app",
+  "label": "account"
+ },
+ {
+  "id": "HD-account-10",
+  "text": "is there a desktop version of the app or just mobile",
+  "label": "account"
+ },
+ {
+  "id": "HD-agent_action-01",
+  "text": "i want my money back for the roaming",
+  "label": "agent_action"
+ },
+ {
+  "id": "HD-agent_action-02",
+  "text": "just cancel everything, I'm done with NovaCell",
+  "label": "agent_action"
+ },
+ {
+  "id": "HD-agent_action-03",
+  "text": "u charged me twice fix it",
+  "label": "agent_action"
+ },
+ {
+  "id": "HD-agent_action-04",
+  "text": "someone else is using my account i think, my password got changed",
+  "label": "agent_action"
+ },
+ {
+  "id": "HD-agent_action-05",
+  "text": "my bill has calls to numbers I don't know and I definitely didn't make them",
+  "label": "agent_action"
+ },
+ {
+  "id": "HD-agent_action-06",
+  "text": "put me on the cheaper plan from today",
+  "label": "agent_action"
+ },
+ {
+  "id": "HD-agent_action-07",
+  "text": "I was told I'd get a credit for the outage, where is it?",
+  "label": "agent_action"
+ },
+ {
+  "id": "HD-agent_action-08",
+  "text": "take off the late fee, I paid on time",
+  "label": "agent_action"
+ },
+ {
+  "id": "HD-agent_action-09",
+  "text": "my sim is blocked, unblock it",
+  "label": "agent_action"
+ },
+ {
+  "id": "HD-agent_action-10",
+  "text": "can you look at my account and tell me why my payment bounced",
+  "label": "agent_action"
+ },
+ {
+  "id": "HD-out_of_scope-01",
+  "text": "whats the score",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "HD-out_of_scope-02",
+  "text": "write me a rap",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "HD-out_of_scope-03",
+  "text": "best phone under 500?",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "HD-out_of_scope-04",
+  "text": "how to fix my router wifi at home",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "HD-out_of_scope-05",
+  "text": "is jio better than airtel",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "HD-out_of_scope-06",
+  "text": "help me write my CV",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "HD-out_of_scope-07",
+  "text": "who are you",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "HD-out_of_scope-08",
+  "text": "tell me about the history of the internet",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "HD-out_of_scope-09",
+  "text": "my laptop screen is flickering",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "HD-out_of_scope-10",
+  "text": "what's a good restaurant near me",
+  "label": "out_of_scope"
+ }
+]

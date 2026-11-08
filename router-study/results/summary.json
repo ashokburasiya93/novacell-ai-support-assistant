@@ -1,0 +1,504 @@
+{
+ "tfidf-logreg": {
+  "hard": {
+   "n": 80,
+   "accuracy": 75.0,
+   "macro_f1": 74.5,
+   "agent_action_recall": 70.0,
+   "agent_action_missed": [
+    {
+     "id": "HD-agent_action-01",
+     "text": "i want my money back for the roaming",
+     "gold": "agent_action",
+     "pred": "roaming"
+    },
+    {
+     "id": "HD-agent_action-02",
+     "text": "just cancel everything, I'm done with NovaCell",
+     "gold": "agent_action",
+     "pred": "sim"
+    },
+    {
+     "id": "HD-agent_action-09",
+     "text": "my sim is blocked, unblock it",
+     "gold": "agent_action",
+     "pred": "sim"
+    }
+   ],
+   "invalid_outputs": 0,
+   "latency_p50_ms": 2.06,
+   "latency_p95_ms": 2.24,
+   "avg_in_tokens": 0,
+   "avg_out_tokens": 0,
+   "per_label": {
+    "data": {
+     "precision": 50.0,
+     "recall": 30.0,
+     "f1": 37.5
+    },
+    "billing": {
+     "precision": 80.0,
+     "recall": 80.0,
+     "f1": 80.0
+    },
+    "sim": {
+     "precision": 69.2,
+     "recall": 90.0,
+     "f1": 78.3
+    },
+    "roaming": {
+     "precision": 88.9,
+     "recall": 80.0,
+     "f1": 84.2
+    },
+    "calls": {
+     "precision": 100.0,
+     "recall": 70.0,
+     "f1": 82.4
+    },
+    "account": {
+     "precision": 100.0,
+     "recall": 90.0,
+     "f1": 94.7
+    },
+    "agent_action": {
+     "precision": 58.3,
+     "recall": 70.0,
+     "f1": 63.6
+    },
+    "out_of_scope": {
+     "precision": 64.3,
+     "recall": 90.0,
+     "f1": 75.0
+    }
+   },
+   "confusions": [
+    [
+     "data -> out_of_scope",
+     3
+    ],
+    [
+     "data -> agent_action",
+     3
+    ],
+    [
+     "calls -> data",
+     2
+    ],
+    [
+     "agent_action -> sim",
+     2
+    ],
+    [
+     "data -> billing",
+     1
+    ],
+    [
+     "billing -> agent_action",
+     1
+    ],
+    [
+     "billing -> out_of_scope",
+     1
+    ],
+    [
+     "sim -> out_of_scope",
+     1
+    ]
+   ],
+   "errors": [
+    {
+     "id": "HD-data-01",
+     "text": "net not wrking since mrng pls help",
+     "gold": "data",
+     "pred": "out_of_scope"
+    },
+    {
+     "id": "HD-data-02",
+     "text": "bought the 10gb thing yesterday but still feels like dial-up",
+     "gold": "data",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-data-03",
+     "text": "my hotspot thingy isnt sharing to my ipad",
+     "gold": "data",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-data-04",
+     "text": "is there a way to get more gigs without changing my whole plan?",
+     "gold": "data",
+     "pred": "billing"
+    },
+    {
+     "id": "HD-data-06",
+     "text": "youtube is unwatchable",
+     "gold": "data",
+     "pred": "out_of_scope"
+    },
+    {
+     "id": "HD-data-08",
+     "text": "how come my speeds tank every night around 9",
+     "gold": "data",
+     "pred": "out_of_scope"
+    },
+    {
+     "id": "HD-data-09",
+     "text": "the little 5G sign never shows up even though I'm in the city",
+     "gold": "data",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-billing-03",
+     "text": "hi, I just want to understand what all the fees on my first bill are, it's confusing",
+     "gold": "billing",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-billing-05",
+     "text": "what's this 'regulatory recovery' thing",
+     "gold": "billing",
+     "pred": "out_of_scope"
+    },
+    {
+     "id": "HD-sim-06",
+     "text": "put wrong pin 3 times now it wants some PUK thing",
+     "gold": "sim",
+     "pred": "out_of_scope"
+    },
+    {
+     "id": "HD-roaming-01",
+     "text": "flying to bkk tmrw what do i need to do with my phone",
+     "gold": "roaming",
+     "pred": "sim"
+    },
+    {
+     "id": "HD-roaming-04",
+     "text": "my brother got a huge bill abroad, how do i make sure that doesn't happen to me",
+     "gold": "roaming",
+     "pred": "billing"
+    },
+    {
+     "id": "HD-calls-04",
+     "text": "phone never rings it just goes to vm",
+     "gold": "calls",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-calls-08",
+     "text": "my phone only says SOS",
+     "gold": "calls",
+     "pred": "data"
+    },
+    {
+     "id": "HD-calls-10",
+     "text": "volte where in settings",
+     "gold": "calls",
+     "pred": "data"
+    },
+    {
+     "id": "HD-account-05",
+     "text": "where do I find acct number",
+     "gold": "account",
+     "pred": "sim"
+    },
+    {
+     "id": "HD-agent_action-01",
+     "text": "i want my money back for the roaming",
+     "gold": "agent_action",
+     "pred": "roaming"
+    },
+    {
+     "id": "HD-agent_action-02",
+     "text": "just cancel everything, I'm done with NovaCell",
+     "gold": "agent_action",
+     "pred": "sim"
+    },
+    {
+     "id": "HD-agent_action-09",
+     "text": "my sim is blocked, unblock it",
+     "gold": "agent_action",
+     "pred": "sim"
+    },
+    {
+     "id": "HD-out_of_scope-09",
+     "text": "my laptop screen is flickering",
+     "gold": "out_of_scope",
+     "pred": "data"
+    }
+   ]
+  },
+  "test": {
+   "n": 160,
+   "accuracy": 83.8,
+   "macro_f1": 83.6,
+   "agent_action_recall": 80.0,
+   "agent_action_missed": [
+    {
+     "id": "TE-agent_action-04",
+     "text": "switch me to the Plus plan",
+     "gold": "agent_action",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-agent_action-05",
+     "text": "check why my bill is $30 higher this month",
+     "gold": "agent_action",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-agent_action-07",
+     "text": "there are calls on my bill I never made",
+     "gold": "agent_action",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-agent_action-12",
+     "text": "send a new SIM to my home",
+     "gold": "agent_action",
+     "pred": "sim"
+    }
+   ],
+   "invalid_outputs": 0,
+   "latency_p50_ms": 1.97,
+   "latency_p95_ms": 2.21,
+   "avg_in_tokens": 0,
+   "avg_out_tokens": 0,
+   "per_label": {
+    "data": {
+     "precision": 84.2,
+     "recall": 80.0,
+     "f1": 82.1
+    },
+    "billing": {
+     "precision": 76.0,
+     "recall": 95.0,
+     "f1": 84.4
+    },
+    "sim": {
+     "precision": 85.7,
+     "recall": 90.0,
+     "f1": 87.8
+    },
+    "roaming": {
+     "precision": 89.5,
+     "recall": 85.0,
+     "f1": 87.2
+    },
+    "calls": {
+     "precision": 94.1,
+     "recall": 80.0,
+     "f1": 86.5
+    },
+    "account": {
+     "precision": 79.2,
+     "recall": 95.0,
+     "f1": 86.4
+    },
+    "agent_action": {
+     "precision": 76.2,
+     "recall": 80.0,
+     "f1": 78.0
+    },
+    "out_of_scope": {
+     "precision": 92.9,
+     "recall": 65.0,
+     "f1": 76.5
+    }
+   },
+   "confusions": [
+    [
+     "agent_action -> billing",
+     3
+    ],
+    [
+     "out_of_scope -> account",
+     3
+    ],
+    [
+     "out_of_scope -> agent_action",
+     3
+    ],
+    [
+     "calls -> data",
+     2
+    ],
+    [
+     "data -> out_of_scope",
+     1
+    ],
+    [
+     "data -> account",
+     1
+    ],
+    [
+     "data -> agent_action",
+     1
+    ],
+    [
+     "data -> billing",
+     1
+    ]
+   ],
+   "errors": [
+    {
+     "id": "TE-data-06",
+     "text": "4G connected but pages time out",
+     "gold": "data",
+     "pred": "out_of_scope"
+    },
+    {
+     "id": "TE-data-08",
+     "text": "where do I change APN on android",
+     "gold": "data",
+     "pred": "account"
+    },
+    {
+     "id": "TE-data-10",
+     "text": "which add-on gives me the most GB for the price",
+     "gold": "data",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-data-15",
+     "text": "How many GB come with the starter plan?",
+     "gold": "data",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-billing-13",
+     "text": "how much does the Max plan cost per month",
+     "gold": "billing",
+     "pred": "roaming"
+    },
+    {
+     "id": "TE-sim-18",
+     "text": "number transfer how many days",
+     "gold": "sim",
+     "pred": "account"
+    },
+    {
+     "id": "TE-sim-20",
+     "text": "where is the ICCID printed",
+     "gold": "sim",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-roaming-03",
+     "text": "what do I need to do before an overseas trip",
+     "gold": "roaming",
+     "pred": "sim"
+    },
+    {
+     "id": "TE-roaming-05",
+     "text": "do I pay for receiving calls overseas",
+     "gold": "roaming",
+     "pred": "calls"
+    },
+    {
+     "id": "TE-roaming-20",
+     "text": "using my phone on a cruise ship",
+     "gold": "roaming",
+     "pred": "data"
+    },
+    {
+     "id": "TE-calls-06",
+     "text": "what does it cost to call abroad",
+     "gold": "calls",
+     "pred": "roaming"
+    },
+    {
+     "id": "TE-calls-09",
+     "text": "data is fine but calls won't connect",
+     "gold": "calls",
+     "pred": "data"
+    },
+    {
+     "id": "TE-calls-12",
+     "text": "does my plan include unlimited minutes",
+     "gold": "calls",
+     "pred": "data"
+    },
+    {
+     "id": "TE-calls-14",
+     "text": "how do I withhold my number",
+     "gold": "calls",
+     "pred": "sim"
+    },
+    {
+     "id": "TE-account-20",
+     "text": "transfer the account to my son's name - how does it work",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-agent_action-04",
+     "text": "switch me to the Plus plan",
+     "gold": "agent_action",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-agent_action-05",
+     "text": "check why my bill is $30 higher this month",
+     "gold": "agent_action",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-agent_action-07",
+     "text": "there are calls on my bill I never made",
+     "gold": "agent_action",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-agent_action-12",
+     "text": "send a new SIM to my home",
+     "gold": "agent_action",
+     "pred": "sim"
+    },
+    {
+     "id": "TE-out_of_scope-04",
+     "text": "how do I sort a list in JavaScript",
+     "gold": "out_of_scope",
+     "pred": "account"
+    },
+    {
+     "id": "TE-out_of_scope-09",
+     "text": "recipe for biryani",
+     "gold": "out_of_scope",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-out_of_scope-12",
+     "text": "Tesla share price",
+     "gold": "out_of_scope",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-out_of_scope-13",
+     "text": "diet tips please",
+     "gold": "out_of_scope",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-out_of_scope-14",
+     "text": "can I sue my employer",
+     "gold": "out_of_scope",
+     "pred": "account"
+    },
+    {
+     "id": "TE-out_of_scope-16",
+     "text": "how to change a flat tyre",
+     "gold": "out_of_scope",
+     "pred": "account"
+    },
+    {
+     "id": "TE-out_of_scope-19",
+     "text": "write an email to my boss asking for leave",
+     "gold": "out_of_scope",
+     "pred": "agent_action"
+    }
+   ]
+  }
+ }
+}
