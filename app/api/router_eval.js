@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       const r = await routeWithLLM(item.text, model);
       rows.push([item.id, r.label, r.latencyMs, r.inTokens, r.outTokens]);
     } catch (e) {
-      stopReason = String(e.message).slice(0, 160);
+      stopReason = String(e.message).slice(0, 500);
       break;
     }
     const spare = gapMs - (Date.now() - callStart);

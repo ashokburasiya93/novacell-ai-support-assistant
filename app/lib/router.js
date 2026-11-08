@@ -70,7 +70,7 @@ export async function routeWithLLM(text, model, { timeoutMs = 20000 } = {}) {
       res = await send();
     }
     if (!res.ok) {
-      const err = new Error(`Groq HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
+      const err = new Error(`Groq HTTP ${res.status} (retry-after ${res.headers.get("retry-after") ?? "n/a"}s): ${(await res.text()).slice(0, 400)}`);
       err.status = res.status;
       throw err;
     }
