@@ -1,0 +1,562 @@
+[
+ {
+  "id": "HD-data-01",
+  "pred": "data",
+  "latency_ms": 6.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-data-02",
+  "pred": "data",
+  "latency_ms": 6.6,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-data-03",
+  "pred": "data",
+  "latency_ms": 6.4,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-data-04",
+  "pred": "data",
+  "latency_ms": 7.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-data-05",
+  "pred": "roaming",
+  "latency_ms": 9.5,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-data-06",
+  "pred": "data",
+  "latency_ms": 5.8,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-data-07",
+  "pred": "data",
+  "latency_ms": 4.5,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-data-08",
+  "pred": "data",
+  "latency_ms": 6.0,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-data-09",
+  "pred": "roaming",
+  "latency_ms": 8.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-data-10",
+  "pred": "data",
+  "latency_ms": 5.5,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-billing-01",
+  "pred": "billing",
+  "latency_ms": 6.5,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-billing-02",
+  "pred": "billing",
+  "latency_ms": 5.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-billing-03",
+  "pred": "billing",
+  "latency_ms": 8.6,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-billing-04",
+  "pred": "billing",
+  "latency_ms": 6.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-billing-05",
+  "pred": "billing",
+  "latency_ms": 6.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-billing-06",
+  "pred": "billing",
+  "latency_ms": 5.5,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-billing-07",
+  "pred": "billing",
+  "latency_ms": 6.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-billing-08",
+  "pred": "billing",
+  "latency_ms": 6.4,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-billing-09",
+  "pred": "billing",
+  "latency_ms": 6.7,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-billing-10",
+  "pred": "billing",
+  "latency_ms": 5.7,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-sim-01",
+  "pred": "sim",
+  "latency_ms": 5.8,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-sim-02",
+  "pred": "sim",
+  "latency_ms": 5.6,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-sim-03",
+  "pred": "sim",
+  "latency_ms": 8.1,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-sim-04",
+  "pred": "sim",
+  "latency_ms": 8.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-sim-05",
+  "pred": "sim",
+  "latency_ms": 6.5,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-sim-06",
+  "pred": "agent_action",
+  "latency_ms": 7.1,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-sim-07",
+  "pred": "sim",
+  "latency_ms": 6.6,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-sim-08",
+  "pred": "sim",
+  "latency_ms": 8.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-sim-09",
+  "pred": "sim",
+  "latency_ms": 6.6,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-sim-10",
+  "pred": "sim",
+  "latency_ms": 6.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-roaming-01",
+  "pred": "roaming",
+  "latency_ms": 8.8,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-roaming-02",
+  "pred": "roaming",
+  "latency_ms": 5.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-roaming-03",
+  "pred": "roaming",
+  "latency_ms": 6.3,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-roaming-04",
+  "pred": "roaming",
+  "latency_ms": 9.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-roaming-05",
+  "pred": "roaming",
+  "latency_ms": 6.1,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-roaming-06",
+  "pred": "roaming",
+  "latency_ms": 6.5,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-roaming-07",
+  "pred": "roaming",
+  "latency_ms": 5.5,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-roaming-08",
+  "pred": "roaming",
+  "latency_ms": 6.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-roaming-09",
+  "pred": "roaming",
+  "latency_ms": 7.7,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-roaming-10",
+  "pred": "roaming",
+  "latency_ms": 5.7,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-calls-01",
+  "pred": "calls",
+  "latency_ms": 5.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-calls-02",
+  "pred": "calls",
+  "latency_ms": 5.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-calls-03",
+  "pred": "calls",
+  "latency_ms": 6.0,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-calls-04",
+  "pred": "data",
+  "latency_ms": 6.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-calls-05",
+  "pred": "calls",
+  "latency_ms": 5.7,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-calls-06",
+  "pred": "roaming",
+  "latency_ms": 6.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-calls-07",
+  "pred": "calls",
+  "latency_ms": 6.0,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-calls-08",
+  "pred": "data",
+  "latency_ms": 6.0,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-calls-09",
+  "pred": "calls",
+  "latency_ms": 6.4,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-calls-10",
+  "pred": "calls",
+  "latency_ms": 5.8,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-account-01",
+  "pred": "account",
+  "latency_ms": 5.8,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-account-02",
+  "pred": "account",
+  "latency_ms": 5.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-account-03",
+  "pred": "account",
+  "latency_ms": 6.0,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-account-04",
+  "pred": "account",
+  "latency_ms": 5.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-account-05",
+  "pred": "sim",
+  "latency_ms": 5.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-account-06",
+  "pred": "account",
+  "latency_ms": 6.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-account-07",
+  "pred": "account",
+  "latency_ms": 6.0,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-account-08",
+  "pred": "agent_action",
+  "latency_ms": 5.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-account-09",
+  "pred": "account",
+  "latency_ms": 7.8,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-account-10",
+  "pred": "account",
+  "latency_ms": 6.4,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-agent_action-01",
+  "pred": "agent_action",
+  "latency_ms": 6.0,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-agent_action-02",
+  "pred": "agent_action",
+  "latency_ms": 6.4,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-agent_action-03",
+  "pred": "agent_action",
+  "latency_ms": 5.8,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-agent_action-04",
+  "pred": "agent_action",
+  "latency_ms": 6.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-agent_action-05",
+  "pred": "agent_action",
+  "latency_ms": 8.6,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-agent_action-06",
+  "pred": "agent_action",
+  "latency_ms": 6.1,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-agent_action-07",
+  "pred": "agent_action",
+  "latency_ms": 8.4,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-agent_action-08",
+  "pred": "agent_action",
+  "latency_ms": 6.3,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-agent_action-09",
+  "pred": "sim",
+  "latency_ms": 6.1,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-agent_action-10",
+  "pred": "agent_action",
+  "latency_ms": 6.6,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-out_of_scope-01",
+  "pred": "out_of_scope",
+  "latency_ms": 5.6,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-out_of_scope-02",
+  "pred": "out_of_scope",
+  "latency_ms": 5.6,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-out_of_scope-03",
+  "pred": "out_of_scope",
+  "latency_ms": 5.8,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-out_of_scope-04",
+  "pred": "out_of_scope",
+  "latency_ms": 6.2,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-out_of_scope-05",
+  "pred": "out_of_scope",
+  "latency_ms": 5.9,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-out_of_scope-06",
+  "pred": "out_of_scope",
+  "latency_ms": 5.7,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-out_of_scope-07",
+  "pred": "out_of_scope",
+  "latency_ms": 5.3,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-out_of_scope-08",
+  "pred": "out_of_scope",
+  "latency_ms": 6.1,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-out_of_scope-09",
+  "pred": "out_of_scope",
+  "latency_ms": 5.8,
+  "in_tokens": 0,
+  "out_tokens": 0
+ },
+ {
+  "id": "HD-out_of_scope-10",
+  "pred": "out_of_scope",
+  "latency_ms": 6.3,
+  "in_tokens": 0,
+  "out_tokens": 0
+ }
+]

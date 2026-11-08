@@ -61,6 +61,7 @@ def score(gold, preds):
         "agent_action_recall": per["agent_action"]["recall"],
         "agent_action_missed": [e for e in errors if e["gold"] == "agent_action"],
         "invalid_outputs": sum(by_id[i]["pred"] not in LABELS for i in gold),
+        "json_repairs": sum(bool(by_id[i].get("json_repair")) for i in gold),
         "latency_p50_ms": percentile(lat, 50),
         "latency_p95_ms": percentile(lat, 95),
         "avg_in_tokens": round(sum(by_id[i].get("in_tokens", 0) for i in gold) / len(y)),

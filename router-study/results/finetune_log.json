@@ -1,0 +1,12 @@
+{
+ "base_model": "sentence-transformers/all-MiniLM-L6-v2",
+ "epochs": 12,
+ "batch": 16,
+ "lr": 5e-05,
+ "train_size": 320,
+ "epoch_loss": [1.8618, 1.1295, 0.6292, 0.4127, 0.3302, 0.3008, 0.288, 0.2845, 0.2808, 0.2796, 0.2777, 0.2776],
+ "train_seconds": 35.3,
+ "cpu_threads": 4,
+ "hardware": "Vercel Sandbox, 4 vCPU / 8 GB, CPU only (torch 2.15.0+cpu, transformers 5.22.2)",
+ "note": "Predictions were copied from the sandbox run; inference latency was measured there, one message at a time."
+}

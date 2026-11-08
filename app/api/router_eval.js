@@ -1,7 +1,7 @@
 // Runs the prompted-router arms of the build-vs-fine-tune study on the bundled eval messages.
 // Disabled unless this is a preview deployment or ROUTER_EVAL_ENABLED=true, so production never exposes it.
 // GET /api/router_eval?arm=120b|20b&split=test|hard&from=0&n=40&gap_ms=5000
-// Response rows are compact: [id, predicted label, latency ms, input tokens, output tokens].
+// Response rows are compact: [id, predicted label, latency ms, input tokens, output tokens, json repair 0/1].
 import { routeWithLLM, ROUTER_MODELS } from "../lib/router.js";
 import MESSAGES from "../lib/router_eval_messages.js";
 
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     const callStart = Date.now();
     try {
       const r = await routeWithLLM(item.text, model);
-      rows.push([item.id, r.label, r.latencyMs, r.inTokens, r.outTokens]);
+      rows.push([item.id, r.label, r.latencyMs, r.inTokens, r.outTokens, r.jsonRepair ? 1 : 0]);
     } catch (e) {
       stopReason = String(e.message).slice(0, 500);
       break;

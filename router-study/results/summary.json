@@ -1,4 +1,290 @@
 {
+ "finetuned-minilm": {
+  "hard": {
+   "n": 80,
+   "accuracy": 88.8,
+   "macro_f1": 88.7,
+   "agent_action_recall": 90.0,
+   "agent_action_missed": [
+    {
+     "id": "HD-agent_action-09",
+     "text": "my sim is blocked, unblock it",
+     "gold": "agent_action",
+     "pred": "sim"
+    }
+   ],
+   "invalid_outputs": 0,
+   "json_repairs": 0,
+   "latency_p50_ms": 6.2,
+   "latency_p95_ms": 8.6,
+   "avg_in_tokens": 0,
+   "avg_out_tokens": 0,
+   "per_label": {
+    "data": {
+     "precision": 80.0,
+     "recall": 80.0,
+     "f1": 80.0
+    },
+    "billing": {
+     "precision": 100.0,
+     "recall": 100.0,
+     "f1": 100.0
+    },
+    "sim": {
+     "precision": 81.8,
+     "recall": 90.0,
+     "f1": 85.7
+    },
+    "roaming": {
+     "precision": 76.9,
+     "recall": 100.0,
+     "f1": 87.0
+    },
+    "calls": {
+     "precision": 100.0,
+     "recall": 70.0,
+     "f1": 82.4
+    },
+    "account": {
+     "precision": 100.0,
+     "recall": 80.0,
+     "f1": 88.9
+    },
+    "agent_action": {
+     "precision": 81.8,
+     "recall": 90.0,
+     "f1": 85.7
+    },
+    "out_of_scope": {
+     "precision": 100.0,
+     "recall": 100.0,
+     "f1": 100.0
+    }
+   },
+   "confusions": [
+    [
+     "data -> roaming",
+     2
+    ],
+    [
+     "calls -> data",
+     2
+    ],
+    [
+     "sim -> agent_action",
+     1
+    ],
+    [
+     "calls -> roaming",
+     1
+    ],
+    [
+     "account -> sim",
+     1
+    ],
+    [
+     "account -> agent_action",
+     1
+    ],
+    [
+     "agent_action -> sim",
+     1
+    ]
+   ],
+   "errors": [
+    {
+     "id": "HD-data-05",
+     "text": "Hi, I'm working from a cafe and my laptop needs internet from my phone, is that allowed on my plan or do I need something extra?",
+     "gold": "data",
+     "pred": "roaming"
+    },
+    {
+     "id": "HD-data-09",
+     "text": "the little 5G sign never shows up even though I'm in the city",
+     "gold": "data",
+     "pred": "roaming"
+    },
+    {
+     "id": "HD-sim-06",
+     "text": "put wrong pin 3 times now it wants some PUK thing",
+     "gold": "sim",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-calls-04",
+     "text": "phone never rings it just goes to vm",
+     "gold": "calls",
+     "pred": "data"
+    },
+    {
+     "id": "HD-calls-06",
+     "text": "how much to ring my mum in Kerala",
+     "gold": "calls",
+     "pred": "roaming"
+    },
+    {
+     "id": "HD-calls-08",
+     "text": "my phone only says SOS",
+     "gold": "calls",
+     "pred": "data"
+    },
+    {
+     "id": "HD-account-05",
+     "text": "where do I find acct number",
+     "gold": "account",
+     "pred": "sim"
+    },
+    {
+     "id": "HD-account-08",
+     "text": "locked out of my online account",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-agent_action-09",
+     "text": "my sim is blocked, unblock it",
+     "gold": "agent_action",
+     "pred": "sim"
+    }
+   ]
+  },
+  "test": {
+   "n": 160,
+   "accuracy": 95.6,
+   "macro_f1": 95.6,
+   "agent_action_recall": 95.0,
+   "agent_action_missed": [
+    {
+     "id": "TE-agent_action-10",
+     "text": "how much data did I use last Tuesday on my line",
+     "gold": "agent_action",
+     "pred": "data"
+    }
+   ],
+   "invalid_outputs": 0,
+   "json_repairs": 0,
+   "latency_p50_ms": 6.1,
+   "latency_p95_ms": 6.9,
+   "avg_in_tokens": 0,
+   "avg_out_tokens": 0,
+   "per_label": {
+    "data": {
+     "precision": 87.0,
+     "recall": 100.0,
+     "f1": 93.0
+    },
+    "billing": {
+     "precision": 95.2,
+     "recall": 100.0,
+     "f1": 97.6
+    },
+    "sim": {
+     "precision": 100.0,
+     "recall": 90.0,
+     "f1": 94.7
+    },
+    "roaming": {
+     "precision": 95.2,
+     "recall": 100.0,
+     "f1": 97.6
+    },
+    "calls": {
+     "precision": 100.0,
+     "recall": 85.0,
+     "f1": 91.9
+    },
+    "account": {
+     "precision": 95.2,
+     "recall": 100.0,
+     "f1": 97.6
+    },
+    "agent_action": {
+     "precision": 95.0,
+     "recall": 95.0,
+     "f1": 95.0
+    },
+    "out_of_scope": {
+     "precision": 100.0,
+     "recall": 95.0,
+     "f1": 97.4
+    }
+   },
+   "confusions": [
+    [
+     "sim -> billing",
+     1
+    ],
+    [
+     "sim -> data",
+     1
+    ],
+    [
+     "calls -> roaming",
+     1
+    ],
+    [
+     "calls -> data",
+     1
+    ],
+    [
+     "calls -> account",
+     1
+    ],
+    [
+     "agent_action -> data",
+     1
+    ],
+    [
+     "out_of_scope -> agent_action",
+     1
+    ]
+   ],
+   "errors": [
+    {
+     "id": "TE-sim-18",
+     "text": "number transfer how many days",
+     "gold": "sim",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-sim-20",
+     "text": "where is the ICCID printed",
+     "gold": "sim",
+     "pred": "data"
+    },
+    {
+     "id": "TE-calls-06",
+     "text": "what does it cost to call abroad",
+     "gold": "calls",
+     "pred": "roaming"
+    },
+    {
+     "id": "TE-calls-12",
+     "text": "does my plan include unlimited minutes",
+     "gold": "calls",
+     "pred": "data"
+    },
+    {
+     "id": "TE-calls-14",
+     "text": "how do I withhold my number",
+     "gold": "calls",
+     "pred": "account"
+    },
+    {
+     "id": "TE-agent_action-10",
+     "text": "how much data did I use last Tuesday on my line",
+     "gold": "agent_action",
+     "pred": "data"
+    },
+    {
+     "id": "TE-out_of_scope-19",
+     "text": "write an email to my boss asking for leave",
+     "gold": "out_of_scope",
+     "pred": "agent_action"
+    }
+   ]
+  }
+ },
  "tfidf-logreg": {
   "hard": {
    "n": 80,
@@ -26,6 +312,7 @@
     }
    ],
    "invalid_outputs": 0,
+   "json_repairs": 0,
    "latency_p50_ms": 2.06,
    "latency_p95_ms": 2.24,
    "avg_in_tokens": 0,
@@ -261,6 +548,7 @@
     }
    ],
    "invalid_outputs": 0,
+   "json_repairs": 0,
    "latency_p50_ms": 1.97,
    "latency_p95_ms": 2.21,
    "avg_in_tokens": 0,

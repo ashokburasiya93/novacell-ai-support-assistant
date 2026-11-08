@@ -2,7 +2,32 @@
 
 | Arm | Test acc | Test macro-F1 | Hard acc | Hard macro-F1 | Agent-action recall (test / hard) | p95 latency | Avg tokens in / out |
 |---|---|---|---|---|---|---|---|
+| finetuned-minilm | 95.6% | 95.6% | 88.8% | 88.7% | 95.0% / 90.0% | 6.9 ms | 0 / 0 |
 | tfidf-logreg | 83.8% | 83.6% | 75.0% | 74.5% | 80.0% / 70.0% | 2.21 ms | 0 / 0 |
+
+## finetuned-minilm: errors
+
+**test** (7 errors; top confusions: sim -> billing ×1, sim -> data ×1, calls -> roaming ×1, calls -> data ×1, calls -> account ×1, agent_action -> data ×1, out_of_scope -> agent_action ×1)
+
+- `TE-sim-18` 'number transfer how many days': gold sim, predicted billing
+- `TE-sim-20` 'where is the ICCID printed': gold sim, predicted data
+- `TE-calls-06` 'what does it cost to call abroad': gold calls, predicted roaming
+- `TE-calls-12` 'does my plan include unlimited minutes': gold calls, predicted data
+- `TE-calls-14` 'how do I withhold my number': gold calls, predicted account
+- `TE-agent_action-10` 'how much data did I use last Tuesday on my line': gold agent_action, predicted data
+- `TE-out_of_scope-19` 'write an email to my boss asking for leave': gold out_of_scope, predicted agent_action
+
+**hard** (9 errors; top confusions: data -> roaming ×2, calls -> data ×2, sim -> agent_action ×1, calls -> roaming ×1, account -> sim ×1, account -> agent_action ×1, agent_action -> sim ×1)
+
+- `HD-data-05` "Hi, I'm working from a cafe and my laptop needs internet from my phone, is that allowed on my plan or do I need something extra?": gold data, predicted roaming
+- `HD-data-09` "the little 5G sign never shows up even though I'm in the city": gold data, predicted roaming
+- `HD-sim-06` 'put wrong pin 3 times now it wants some PUK thing': gold sim, predicted agent_action
+- `HD-calls-04` 'phone never rings it just goes to vm': gold calls, predicted data
+- `HD-calls-06` 'how much to ring my mum in Kerala': gold calls, predicted roaming
+- `HD-calls-08` 'my phone only says SOS': gold calls, predicted data
+- `HD-account-05` 'where do I find acct number': gold account, predicted sim
+- `HD-account-08` 'locked out of my online account': gold account, predicted agent_action
+- `HD-agent_action-09` 'my sim is blocked, unblock it': gold agent_action, predicted sim
 
 ## tfidf-logreg: errors
 

@@ -69,6 +69,24 @@ export async function routeWithLLM(text, model, { timeoutMs = 20000 } = {}) {
       t0 = Date.now(); // latency excludes the free-tier rate-limit wait
       res = await send();
     }
+    if (res.status === 400) {
+      // Groq rejects replies that are not valid JSON. Recover the label if the rejected text names exactly
+      // one valid label (what a production repair step would do); otherwise count it as an invalid output.
+      const text = await res.text();
+      let failed = "";
+      try {
+        failed = JSON.parse(text).error?.failed_generation || "";
+      } catch {
+        /* not JSON */
+      }
+      if (text.includes("validate JSON")) {
+        const found = ROUTER_LABELS.filter((l) => new RegExp(`\\b${l}\\b`).test(failed));
+        return { label: found.length === 1 ? found[0] : "invalid", latencyMs: Date.now() - t0, inTokens: 0, outTokens: 0, jsonRepair: true };
+      }
+      const err = new Error(`Groq HTTP 400: ${text.slice(0, 400)}`);
+      err.status = 400;
+      throw err;
+    }
     if (!res.ok) {
       const err = new Error(`Groq HTTP ${res.status} (retry-after ${res.headers.get("retry-after") ?? "n/a"}s): ${(await res.text()).slice(0, 400)}`);
       err.status = res.status;
