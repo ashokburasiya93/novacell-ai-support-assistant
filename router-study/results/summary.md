@@ -2,9 +2,29 @@
 
 | Arm | Test acc | Test macro-F1 | Hard acc | Hard macro-F1 | Agent-action recall (test / hard) | p95 latency | Avg tokens in / out |
 |---|---|---|---|---|---|---|---|
+| llm-120b | 93.8% | 93.7% | 98.8% | 98.7% | 95.0% / 100.0% | 1760 ms | 593 / 27 |
 | llm-20b | 88.8% | 89.0% | 85.0% | 85.8% | 100.0% / 100.0% | 1924 ms | 593 / 32 |
 | finetuned-minilm | 95.6% | 95.6% | 88.8% | 88.7% | 95.0% / 90.0% | 6.9 ms | 0 / 0 |
 | tfidf-logreg | 83.8% | 83.6% | 75.0% | 74.5% | 80.0% / 70.0% | 2.21 ms | 0 / 0 |
+
+## llm-120b: errors
+
+**test** (10 errors; top confusions: account -> agent_action ×5, roaming -> calls ×2, sim -> billing ×1, sim -> agent_action ×1, agent_action -> data ×1)
+
+- `TE-sim-09` 'replacement SIM card price': gold sim, predicted billing
+- `TE-sim-16` 'my SIM card is cracked': gold sim, predicted agent_action
+- `TE-roaming-05` 'do I pay for receiving calls overseas': gold roaming, predicted calls
+- `TE-roaming-15` 'does wifi calling cost anything abroad': gold roaming, predicted calls
+- `TE-account-04` 'account locked after too many logins': gold account, predicted agent_action
+- `TE-account-10` 'app shows a server error': gold account, predicted agent_action
+- `TE-account-16` 'how do I close my online profile': gold account, predicted agent_action
+- `TE-account-19` 'how to check my order status': gold account, predicted agent_action
+- `TE-account-20` "transfer the account to my son's name - how does it work": gold account, predicted agent_action
+- `TE-agent_action-10` 'how much data did I use last Tuesday on my line': gold agent_action, predicted data
+
+**hard** (1 errors; top confusions: calls -> roaming ×1)
+
+- `HD-calls-08` 'my phone only says SOS': gold calls, predicted roaming
 
 ## llm-20b: errors
 

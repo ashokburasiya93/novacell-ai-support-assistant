@@ -285,6 +285,223 @@
    ]
   }
  },
+ "llm-120b": {
+  "hard": {
+   "n": 80,
+   "accuracy": 98.8,
+   "macro_f1": 98.7,
+   "agent_action_recall": 100.0,
+   "agent_action_missed": [],
+   "invalid_outputs": 0,
+   "json_repairs": 0,
+   "latency_p50_ms": 419,
+   "latency_p95_ms": 1252,
+   "avg_in_tokens": 595,
+   "avg_out_tokens": 31,
+   "per_label": {
+    "data": {
+     "precision": 100.0,
+     "recall": 100.0,
+     "f1": 100.0
+    },
+    "billing": {
+     "precision": 100.0,
+     "recall": 100.0,
+     "f1": 100.0
+    },
+    "sim": {
+     "precision": 100.0,
+     "recall": 100.0,
+     "f1": 100.0
+    },
+    "roaming": {
+     "precision": 90.9,
+     "recall": 100.0,
+     "f1": 95.2
+    },
+    "calls": {
+     "precision": 100.0,
+     "recall": 90.0,
+     "f1": 94.7
+    },
+    "account": {
+     "precision": 100.0,
+     "recall": 100.0,
+     "f1": 100.0
+    },
+    "agent_action": {
+     "precision": 100.0,
+     "recall": 100.0,
+     "f1": 100.0
+    },
+    "out_of_scope": {
+     "precision": 100.0,
+     "recall": 100.0,
+     "f1": 100.0
+    }
+   },
+   "confusions": [
+    [
+     "calls -> roaming",
+     1
+    ]
+   ],
+   "errors": [
+    {
+     "id": "HD-calls-08",
+     "text": "my phone only says SOS",
+     "gold": "calls",
+     "pred": "roaming"
+    }
+   ]
+  },
+  "test": {
+   "n": 160,
+   "accuracy": 93.8,
+   "macro_f1": 93.7,
+   "agent_action_recall": 95.0,
+   "agent_action_missed": [
+    {
+     "id": "TE-agent_action-10",
+     "text": "how much data did I use last Tuesday on my line",
+     "gold": "agent_action",
+     "pred": "data"
+    }
+   ],
+   "invalid_outputs": 0,
+   "json_repairs": 0,
+   "latency_p50_ms": 383,
+   "latency_p95_ms": 1760,
+   "avg_in_tokens": 593,
+   "avg_out_tokens": 27,
+   "per_label": {
+    "data": {
+     "precision": 95.2,
+     "recall": 100.0,
+     "f1": 97.6
+    },
+    "billing": {
+     "precision": 95.2,
+     "recall": 100.0,
+     "f1": 97.6
+    },
+    "sim": {
+     "precision": 100.0,
+     "recall": 90.0,
+     "f1": 94.7
+    },
+    "roaming": {
+     "precision": 100.0,
+     "recall": 90.0,
+     "f1": 94.7
+    },
+    "calls": {
+     "precision": 90.9,
+     "recall": 100.0,
+     "f1": 95.2
+    },
+    "account": {
+     "precision": 100.0,
+     "recall": 75.0,
+     "f1": 85.7
+    },
+    "agent_action": {
+     "precision": 76.0,
+     "recall": 95.0,
+     "f1": 84.4
+    },
+    "out_of_scope": {
+     "precision": 100.0,
+     "recall": 100.0,
+     "f1": 100.0
+    }
+   },
+   "confusions": [
+    [
+     "account -> agent_action",
+     5
+    ],
+    [
+     "roaming -> calls",
+     2
+    ],
+    [
+     "sim -> billing",
+     1
+    ],
+    [
+     "sim -> agent_action",
+     1
+    ],
+    [
+     "agent_action -> data",
+     1
+    ]
+   ],
+   "errors": [
+    {
+     "id": "TE-sim-09",
+     "text": "replacement SIM card price",
+     "gold": "sim",
+     "pred": "billing"
+    },
+    {
+     "id": "TE-sim-16",
+     "text": "my SIM card is cracked",
+     "gold": "sim",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-roaming-05",
+     "text": "do I pay for receiving calls overseas",
+     "gold": "roaming",
+     "pred": "calls"
+    },
+    {
+     "id": "TE-roaming-15",
+     "text": "does wifi calling cost anything abroad",
+     "gold": "roaming",
+     "pred": "calls"
+    },
+    {
+     "id": "TE-account-04",
+     "text": "account locked after too many logins",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-10",
+     "text": "app shows a server error",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-16",
+     "text": "how do I close my online profile",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-19",
+     "text": "how to check my order status",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-20",
+     "text": "transfer the account to my son's name - how does it work",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-agent_action-10",
+     "text": "how much data did I use last Tuesday on my line",
+     "gold": "agent_action",
+     "pred": "data"
+    }
+   ]
+  }
+ },
  "llm-20b": {
   "hard": {
    "n": 80,
