@@ -285,6 +285,370 @@
    ]
   }
  },
+ "llm-20b": {
+  "hard": {
+   "n": 80,
+   "accuracy": 85.0,
+   "macro_f1": 85.8,
+   "agent_action_recall": 100.0,
+   "agent_action_missed": [],
+   "invalid_outputs": 1,
+   "json_repairs": 1,
+   "latency_p50_ms": 386,
+   "latency_p95_ms": 1478,
+   "avg_in_tokens": 587,
+   "avg_out_tokens": 34,
+   "per_label": {
+    "data": {
+     "precision": 83.3,
+     "recall": 100.0,
+     "f1": 90.9
+    },
+    "billing": {
+     "precision": 100.0,
+     "recall": 70.0,
+     "f1": 82.4
+    },
+    "sim": {
+     "precision": 100.0,
+     "recall": 90.0,
+     "f1": 94.7
+    },
+    "roaming": {
+     "precision": 100.0,
+     "recall": 90.0,
+     "f1": 94.7
+    },
+    "calls": {
+     "precision": 100.0,
+     "recall": 80.0,
+     "f1": 88.9
+    },
+    "account": {
+     "precision": 100.0,
+     "recall": 60.0,
+     "f1": 75.0
+    },
+    "agent_action": {
+     "precision": 58.8,
+     "recall": 100.0,
+     "f1": 74.1
+    },
+    "out_of_scope": {
+     "precision": 81.8,
+     "recall": 90.0,
+     "f1": 85.7
+    }
+   },
+   "confusions": [
+    [
+     "account -> agent_action",
+     3
+    ],
+    [
+     "billing -> agent_action",
+     2
+    ],
+    [
+     "billing -> out_of_scope",
+     1
+    ],
+    [
+     "sim -> agent_action",
+     1
+    ],
+    [
+     "roaming -> data",
+     1
+    ],
+    [
+     "calls -> agent_action",
+     1
+    ],
+    [
+     "calls -> data",
+     1
+    ],
+    [
+     "account -> out_of_scope",
+     1
+    ]
+   ],
+   "errors": [
+    {
+     "id": "HD-billing-01",
+     "text": "y is my bill more than the plan price??",
+     "gold": "billing",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-billing-05",
+     "text": "what's this 'regulatory recovery' thing",
+     "gold": "billing",
+     "pred": "out_of_scope"
+    },
+    {
+     "id": "HD-billing-06",
+     "text": "bill pdf where",
+     "gold": "billing",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-sim-03",
+     "text": "lost my phone at the station, what do I do so nobody uses my number",
+     "gold": "sim",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-roaming-09",
+     "text": "can I use the hotspot while on the travel pass in Italy",
+     "gold": "roaming",
+     "pred": "data"
+    },
+    {
+     "id": "HD-calls-07",
+     "text": "spam callers driving me mad",
+     "gold": "calls",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-calls-08",
+     "text": "my phone only says SOS",
+     "gold": "calls",
+     "pred": "data"
+    },
+    {
+     "id": "HD-account-03",
+     "text": "need to change my email on file",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-account-05",
+     "text": "where do I find acct number",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-account-09",
+     "text": "change my address pls - how do I do it in the app",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "HD-account-10",
+     "text": "is there a desktop version of the app or just mobile",
+     "gold": "account",
+     "pred": "out_of_scope"
+    },
+    {
+     "id": "HD-out_of_scope-07",
+     "text": "who are you",
+     "gold": "out_of_scope",
+     "pred": "invalid"
+    }
+   ]
+  },
+  "test": {
+   "n": 160,
+   "accuracy": 88.8,
+   "macro_f1": 89.0,
+   "agent_action_recall": 100.0,
+   "agent_action_missed": [],
+   "invalid_outputs": 0,
+   "json_repairs": 0,
+   "latency_p50_ms": 383,
+   "latency_p95_ms": 1924,
+   "avg_in_tokens": 593,
+   "avg_out_tokens": 32,
+   "per_label": {
+    "data": {
+     "precision": 95.2,
+     "recall": 100.0,
+     "f1": 97.6
+    },
+    "billing": {
+     "precision": 94.7,
+     "recall": 90.0,
+     "f1": 92.3
+    },
+    "sim": {
+     "precision": 100.0,
+     "recall": 90.0,
+     "f1": 94.7
+    },
+    "roaming": {
+     "precision": 94.7,
+     "recall": 90.0,
+     "f1": 92.3
+    },
+    "calls": {
+     "precision": 94.7,
+     "recall": 90.0,
+     "f1": 92.3
+    },
+    "account": {
+     "precision": 100.0,
+     "recall": 55.0,
+     "f1": 71.0
+    },
+    "agent_action": {
+     "precision": 58.8,
+     "recall": 100.0,
+     "f1": 74.1
+    },
+    "out_of_scope": {
+     "precision": 100.0,
+     "recall": 95.0,
+     "f1": 97.4
+    }
+   },
+   "confusions": [
+    [
+     "account -> agent_action",
+     9
+    ],
+    [
+     "billing -> agent_action",
+     2
+    ],
+    [
+     "sim -> agent_action",
+     2
+    ],
+    [
+     "roaming -> calls",
+     1
+    ],
+    [
+     "roaming -> data",
+     1
+    ],
+    [
+     "calls -> agent_action",
+     1
+    ],
+    [
+     "calls -> roaming",
+     1
+    ],
+    [
+     "out_of_scope -> billing",
+     1
+    ]
+   ],
+   "errors": [
+    {
+     "id": "TE-billing-04",
+     "text": "how far back can I get old bills",
+     "gold": "billing",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-billing-14",
+     "text": "where do I find my invoice PDF",
+     "gold": "billing",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-sim-08",
+     "text": "moving eSIM to my new iPhone",
+     "gold": "sim",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-sim-11",
+     "text": "SIM PIN blocked after 3 tries",
+     "gold": "sim",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-roaming-15",
+     "text": "does wifi calling cost anything abroad",
+     "gold": "roaming",
+     "pred": "calls"
+    },
+    {
+     "id": "TE-roaming-18",
+     "text": "can I use hotspot with the travel pass",
+     "gold": "roaming",
+     "pred": "data"
+    },
+    {
+     "id": "TE-calls-15",
+     "text": "voicemail PIN forgotten",
+     "gold": "calls",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-calls-20",
+     "text": "is there an international calling bundle",
+     "gold": "calls",
+     "pred": "roaming"
+    },
+    {
+     "id": "TE-account-02",
+     "text": "how to update the email on my account",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-03",
+     "text": "MyTelecom app crashes on launch",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-04",
+     "text": "account locked after too many logins",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-06",
+     "text": "where's my account number",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-10",
+     "text": "app shows a server error",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-12",
+     "text": "can I manage my partner's line from my login",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-15",
+     "text": "the app won't show my usage",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-19",
+     "text": "how to check my order status",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-account-20",
+     "text": "transfer the account to my son's name - how does it work",
+     "gold": "account",
+     "pred": "agent_action"
+    },
+    {
+     "id": "TE-out_of_scope-10",
+     "text": "is T-Mobile cheaper than Verizon",
+     "gold": "out_of_scope",
+     "pred": "billing"
+    }
+   ]
+  }
+ },
  "tfidf-logreg": {
   "hard": {
    "n": 80,

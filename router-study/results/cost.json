@@ -44,21 +44,21 @@
   },
   {
    "option": "llm-20b",
-   "tokens_source": "provisional",
-   "cost_per_1k_messages": 0.0522,
-   "running_per_month": 7.83,
+   "tokens_source": "full run",
+   "cost_per_1k_messages": 0.054,
+   "running_per_month": 8.1,
    "maintenance_per_month": 8.33,
    "one_off": 0,
-   "total_12_months": 193.91
+   "total_12_months": 197.15
   },
   {
    "option": "llm-20b (cached prompt)",
-   "tokens_source": "provisional",
-   "cost_per_1k_messages": 0.0299,
-   "running_per_month": 4.48,
+   "tokens_source": "full run",
+   "cost_per_1k_messages": 0.0317,
+   "running_per_month": 4.76,
    "maintenance_per_month": 8.33,
    "one_off": 0,
-   "total_12_months": 153.81
+   "total_12_months": 157.1
   },
   {
    "option": "finetuned-minilm",
@@ -73,7 +73,7 @@
  "breakeven_messages_per_month": {
   "llm-120b": 701517,
   "llm-120b (cached prompt)": 1254913,
-  "llm-20b": 1401129,
-  "llm-20b (cached prompt)": 2503738
+  "llm-20b": 1353033,
+  "llm-20b (cached prompt)": 2354199
  }
 }

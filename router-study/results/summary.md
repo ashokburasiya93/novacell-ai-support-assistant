@@ -2,8 +2,47 @@
 
 | Arm | Test acc | Test macro-F1 | Hard acc | Hard macro-F1 | Agent-action recall (test / hard) | p95 latency | Avg tokens in / out |
 |---|---|---|---|---|---|---|---|
+| llm-20b | 88.8% | 89.0% | 85.0% | 85.8% | 100.0% / 100.0% | 1924 ms | 593 / 32 |
 | finetuned-minilm | 95.6% | 95.6% | 88.8% | 88.7% | 95.0% / 90.0% | 6.9 ms | 0 / 0 |
 | tfidf-logreg | 83.8% | 83.6% | 75.0% | 74.5% | 80.0% / 70.0% | 2.21 ms | 0 / 0 |
+
+## llm-20b: errors
+
+**test** (18 errors; top confusions: account -> agent_action ×9, billing -> agent_action ×2, sim -> agent_action ×2, roaming -> calls ×1, roaming -> data ×1, calls -> agent_action ×1, calls -> roaming ×1, out_of_scope -> billing ×1)
+
+- `TE-billing-04` 'how far back can I get old bills': gold billing, predicted agent_action
+- `TE-billing-14` 'where do I find my invoice PDF': gold billing, predicted agent_action
+- `TE-sim-08` 'moving eSIM to my new iPhone': gold sim, predicted agent_action
+- `TE-sim-11` 'SIM PIN blocked after 3 tries': gold sim, predicted agent_action
+- `TE-roaming-15` 'does wifi calling cost anything abroad': gold roaming, predicted calls
+- `TE-roaming-18` 'can I use hotspot with the travel pass': gold roaming, predicted data
+- `TE-calls-15` 'voicemail PIN forgotten': gold calls, predicted agent_action
+- `TE-calls-20` 'is there an international calling bundle': gold calls, predicted roaming
+- `TE-account-02` 'how to update the email on my account': gold account, predicted agent_action
+- `TE-account-03` 'MyTelecom app crashes on launch': gold account, predicted agent_action
+- `TE-account-04` 'account locked after too many logins': gold account, predicted agent_action
+- `TE-account-06` "where's my account number": gold account, predicted agent_action
+- `TE-account-10` 'app shows a server error': gold account, predicted agent_action
+- `TE-account-12` "can I manage my partner's line from my login": gold account, predicted agent_action
+- `TE-account-15` "the app won't show my usage": gold account, predicted agent_action
+- `TE-account-19` 'how to check my order status': gold account, predicted agent_action
+- `TE-account-20` "transfer the account to my son's name - how does it work": gold account, predicted agent_action
+- `TE-out_of_scope-10` 'is T-Mobile cheaper than Verizon': gold out_of_scope, predicted billing
+
+**hard** (12 errors; top confusions: account -> agent_action ×3, billing -> agent_action ×2, billing -> out_of_scope ×1, sim -> agent_action ×1, roaming -> data ×1, calls -> agent_action ×1, calls -> data ×1, account -> out_of_scope ×1)
+
+- `HD-billing-01` 'y is my bill more than the plan price??': gold billing, predicted agent_action
+- `HD-billing-05` "what's this 'regulatory recovery' thing": gold billing, predicted out_of_scope
+- `HD-billing-06` 'bill pdf where': gold billing, predicted agent_action
+- `HD-sim-03` 'lost my phone at the station, what do I do so nobody uses my number': gold sim, predicted agent_action
+- `HD-roaming-09` 'can I use the hotspot while on the travel pass in Italy': gold roaming, predicted data
+- `HD-calls-07` 'spam callers driving me mad': gold calls, predicted agent_action
+- `HD-calls-08` 'my phone only says SOS': gold calls, predicted data
+- `HD-account-03` 'need to change my email on file': gold account, predicted agent_action
+- `HD-account-05` 'where do I find acct number': gold account, predicted agent_action
+- `HD-account-09` 'change my address pls - how do I do it in the app': gold account, predicted agent_action
+- `HD-account-10` 'is there a desktop version of the app or just mobile': gold account, predicted out_of_scope
+- `HD-out_of_scope-07` 'who are you': gold out_of_scope, predicted invalid
 
 ## finetuned-minilm: errors
 
