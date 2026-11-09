@@ -40,6 +40,19 @@ Targets (PRD section 11): key facts ≥ 85%, citations ≥ 90%, retrieval ≥ 90
 
 What the evals caught and we fixed along the way: an escalated account-compromise ticket missing from the knowledge base; a model inventing an APN and settings path (now every web address and settings path must appear in a cited source); and a backup model claiming "we have already processed a refund" (now a broader promise filter, and refund/credit/cancel requests always go to an agent).
 
+## Build vs fine-tune: the intent router
+
+Should the step that sorts each message into one of 8 intents be a prompted LLM or a small fine-tuned classifier? Four routers were tested on 160 clean and 80 messy messages ([full write-up](router-study/DECISION.md)):
+
+| Router | Clean accuracy | Messy accuracy | Agent-action recall (clean / messy) | Typical latency | 12-month cost at 150k msgs/month |
+|---|---|---|---|---|---|
+| **Prompted gpt-oss-120b (kept)** | 93.8% | **98.8%** | 95% / 100% | 0.4 s | $289 |
+| Prompted gpt-oss-20b | 88.8% | 85.0% | 100% / 100% | 0.4 s | $197 |
+| Fine-tuned MiniLM | **95.6%** | 88.8% | 95% / 90% | **6 ms** | $954 |
+| TF-IDF baseline | 83.8% | 75.0% | 80% / 70% | 2 ms | – |
+
+**Decision:** keep the prompted 120b router. Fine-tuning wins on clean questions and speed but drops 10 points on real-world phrasing, and it only becomes cheaper above about 685,000 messages a month. Revisit at that volume, or if routing must run in under 100 ms.
+
 ## Run it
 
 See [app/README.md](app/README.md). In short: put `GROQ_API_KEY` and `OPENROUTER_API_KEY` in `app/.env`, then `node app/server.js`.
