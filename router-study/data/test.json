@@ -1,0 +1,802 @@
+[
+ {
+  "id": "TE-data-01",
+  "text": "internet barely loads anything on my phone",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-02",
+  "text": "how much high speed data is left this month",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-03",
+  "text": "can I top up data mid-cycle",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-04",
+  "text": "what speed will I get once my allowance runs out",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-05",
+  "text": "how do I share my phone's internet with my laptop",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-06",
+  "text": "4G connected but pages time out",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-07",
+  "text": "is tethering allowed on the basic plan",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-08",
+  "text": "where do I change APN on android",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-09",
+  "text": "mobile data greyed out in settings",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-10",
+  "text": "which add-on gives me the most GB for the price",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-11",
+  "text": "does 5G use more data than 4G",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-12",
+  "text": "my phone keeps switching between 4G and 5G",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-13",
+  "text": "can I limit my kid's data usage",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-14",
+  "text": "videos won't play unless I'm on wifi",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-15",
+  "text": "How many GB come with the starter plan?",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-16",
+  "text": "is there a night-time unlimited data offer",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-17",
+  "text": "data works in town but not at my house",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-18",
+  "text": "do I need to restart after buying a data pack",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-19",
+  "text": "why am I being throttled already",
+  "label": "data"
+ },
+ {
+  "id": "TE-data-20",
+  "text": "best way to check data usage on iPhone",
+  "label": "data"
+ },
+ {
+  "id": "TE-billing-01",
+  "text": "what's the due date for payments",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-02",
+  "text": "I'd like to pay automatically every month, how",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-03",
+  "text": "explain the line items on my monthly statement",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-04",
+  "text": "how far back can I get old bills",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-05",
+  "text": "is there a charge for paper bills",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-06",
+  "text": "what does the 'activation' line on my bill mean",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-07",
+  "text": "how are taxes calculated on my plan",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-08",
+  "text": "will I get notified before my card is charged",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-09",
+  "text": "can I pay with UPI or PayPal",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-10",
+  "text": "what is the penalty for paying late",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-11",
+  "text": "how do I stop premium text charges happening",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-12",
+  "text": "what does a pro-rata charge mean when switching plans",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-13",
+  "text": "how much does the Max plan cost per month",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-14",
+  "text": "where do I find my invoice PDF",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-15",
+  "text": "is there a discount if I set up autopay",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-16",
+  "text": "what is the device payment on my statement",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-17",
+  "text": "how do I change my payment card",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-18",
+  "text": "when does the billing period reset",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-19",
+  "text": "does the price shown include taxes and fees",
+  "label": "billing"
+ },
+ {
+  "id": "TE-billing-20",
+  "text": "what fees are on the first bill",
+  "label": "billing"
+ },
+ {
+  "id": "TE-sim-01",
+  "text": "how do I get my new SIM card working",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-02",
+  "text": "does my Pixel support eSIM",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-03",
+  "text": "my phone was stolen, how do I stop someone using my SIM",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-04",
+  "text": "SIM inserted but phone says no SIM",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-05",
+  "text": "how to bring my old number over from another provider",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-06",
+  "text": "what's the PUK and how do I get it",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-07",
+  "text": "can I have an eSIM and a regular SIM at the same time",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-08",
+  "text": "moving eSIM to my new iPhone",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-09",
+  "text": "replacement SIM card price",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-10",
+  "text": "my phone is carrier locked, can it be unlocked",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-11",
+  "text": "SIM PIN blocked after 3 tries",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-12",
+  "text": "how long until my new SIM activates",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-13",
+  "text": "QR code for eSIM not scanning",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-14",
+  "text": "do I need nano or micro SIM",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-15",
+  "text": "is my unlocked phone going to work on your network",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-16",
+  "text": "my SIM card is cracked",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-17",
+  "text": "how to switch from physical SIM to eSIM",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-18",
+  "text": "number transfer how many days",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-19",
+  "text": "phone shows SIM not provisioned MM#2",
+  "label": "sim"
+ },
+ {
+  "id": "TE-sim-20",
+  "text": "where is the ICCID printed",
+  "label": "sim"
+ },
+ {
+  "id": "TE-roaming-01",
+  "text": "going to Germany next month, will my phone work",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-02",
+  "text": "how much is the travel day pass",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-03",
+  "text": "what do I need to do before an overseas trip",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-04",
+  "text": "no signal since landing in Singapore",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-05",
+  "text": "do I pay for receiving calls overseas",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-06",
+  "text": "is there a monthly roaming pass and what's in it",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-07",
+  "text": "how do I avoid a huge bill while travelling",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-08",
+  "text": "data roaming on or off when abroad",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-09",
+  "text": "which countries does the day pass cover",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-10",
+  "text": "texting rates while roaming",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-11",
+  "text": "can I get a pass once I'm already abroad",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-12",
+  "text": "roaming speed very slow in Turkey",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-13",
+  "text": "is roaming included in my plan",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-14",
+  "text": "how is the daily roaming pass billed",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-15",
+  "text": "does wifi calling cost anything abroad",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-16",
+  "text": "will my eSIM work overseas",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-17",
+  "text": "difference between daily and monthly travel pass",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-18",
+  "text": "can I use hotspot with the travel pass",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-19",
+  "text": "roaming on but still no service in Bali",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-roaming-20",
+  "text": "using my phone on a cruise ship",
+  "label": "roaming"
+ },
+ {
+  "id": "TE-calls-01",
+  "text": "calls disconnect randomly",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-02",
+  "text": "how do I set up my voicemail box",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-03",
+  "text": "turn on wifi calling",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-04",
+  "text": "caller can't hear me but I can hear them",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-05",
+  "text": "phone doesn't ring, calls go to voicemail",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-06",
+  "text": "what does it cost to call abroad",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-07",
+  "text": "how to forward calls to another number",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-08",
+  "text": "voicemail number please",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-09",
+  "text": "data is fine but calls won't connect",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-10",
+  "text": "how to block unknown callers",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-11",
+  "text": "poor call quality indoors",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-12",
+  "text": "does my plan include unlimited minutes",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-13",
+  "text": "how do I enable VoLTE on Samsung",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-14",
+  "text": "how do I withhold my number",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-15",
+  "text": "voicemail PIN forgotten",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-16",
+  "text": "calls drop when moving between wifi and 4G",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-17",
+  "text": "only emergency calls showing on screen",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-18",
+  "text": "how to change the voicemail message",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-19",
+  "text": "visual voicemail stuck loading",
+  "label": "calls"
+ },
+ {
+  "id": "TE-calls-20",
+  "text": "is there an international calling bundle",
+  "label": "calls"
+ },
+ {
+  "id": "TE-account-01",
+  "text": "can't remember my login for the app",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-02",
+  "text": "how to update the email on my account",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-03",
+  "text": "MyTelecom app crashes on launch",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-04",
+  "text": "account locked after too many logins",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-05",
+  "text": "how do I add someone as an authorised user",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-06",
+  "text": "where's my account number",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-07",
+  "text": "how to change my address on my profile",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-08",
+  "text": "verification code for app login never comes",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-09",
+  "text": "how do I create an online account",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-10",
+  "text": "app shows a server error",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-11",
+  "text": "how do I log out everywhere",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-12",
+  "text": "can I manage my partner's line from my login",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-13",
+  "text": "how to change marketing email settings",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-14",
+  "text": "how do I set up security questions",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-15",
+  "text": "the app won't show my usage",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-16",
+  "text": "how do I close my online profile",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-17",
+  "text": "can I use MyTelecom on the web",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-18",
+  "text": "how do I change my account PIN",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-19",
+  "text": "how to check my order status",
+  "label": "account"
+ },
+ {
+  "id": "TE-account-20",
+  "text": "transfer the account to my son's name - how does it work",
+  "label": "account"
+ },
+ {
+  "id": "TE-agent_action-01",
+  "text": "refund the roaming charges from last month",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-02",
+  "text": "I want to end my contract",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-03",
+  "text": "credit me for the network outage",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-04",
+  "text": "switch me to the Plus plan",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-05",
+  "text": "check why my bill is $30 higher this month",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-06",
+  "text": "someone logged into my account and changed my email",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-07",
+  "text": "there are calls on my bill I never made",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-08",
+  "text": "please remove the late payment fee",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-09",
+  "text": "please unblock my number",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-10",
+  "text": "how much data did I use last Tuesday on my line",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-11",
+  "text": "I want to raise a dispute about a charge",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-12",
+  "text": "send a new SIM to my home",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-13",
+  "text": "I think my account has been hacked",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-14",
+  "text": "cancel the subscription that's charging me for texts",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-15",
+  "text": "I overpaid, give me my money back",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-16",
+  "text": "I was charged twice",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-17",
+  "text": "I got a message my SIM was swapped but I didn't do it",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-18",
+  "text": "apply my discount to this bill",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-19",
+  "text": "freeze my line while I'm overseas",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-agent_action-20",
+  "text": "compensate me for 3 days without service",
+  "label": "agent_action"
+ },
+ {
+  "id": "TE-out_of_scope-01",
+  "text": "what's the weather in Mumbai",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-02",
+  "text": "write a short story about a dragon",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-03",
+  "text": "who won the football yesterday",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-04",
+  "text": "how do I sort a list in JavaScript",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-05",
+  "text": "which iPhone should I buy",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-06",
+  "text": "help me with my maths homework",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-07",
+  "text": "tell me something funny",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-08",
+  "text": "capital of Canada?",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-09",
+  "text": "recipe for biryani",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-10",
+  "text": "is T-Mobile cheaper than Verizon",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-11",
+  "text": "translate thank you to Spanish",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-12",
+  "text": "Tesla share price",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-13",
+  "text": "diet tips please",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-14",
+  "text": "can I sue my employer",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-15",
+  "text": "suggest a series to watch",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-16",
+  "text": "how to change a flat tyre",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-17",
+  "text": "time in Tokyo now",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-18",
+  "text": "what is machine learning",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-19",
+  "text": "write an email to my boss asking for leave",
+  "label": "out_of_scope"
+ },
+ {
+  "id": "TE-out_of_scope-20",
+  "text": "what can I take for a fever",
+  "label": "out_of_scope"
+ }
+]
